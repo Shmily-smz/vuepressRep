@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/vuepressRep/docs/.vuepress/.temp/pages/AB3/平台/AB4/市场问题处理案例/ABC崩溃处理步骤.html.vue"
+const data = JSON.parse("{\"path\":\"/AB3/%E5%B9%B3%E5%8F%B0/AB4/%E5%B8%82%E5%9C%BA%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%E6%A1%88%E4%BE%8B/ABC%E5%B4%A9%E6%BA%83%E5%A4%84%E7%90%86%E6%AD%A5%E9%AA%A4.html\",\"title\":\"\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":3,\"title\":\"常见崩溃类型：\",\"slug\":\"常见崩溃类型\",\"link\":\"#常见崩溃类型\",\"children\":[]},{\"level\":3,\"title\":\"排查方式\",\"slug\":\"排查方式\",\"link\":\"#排查方式\",\"children\":[]},{\"level\":3,\"title\":\"排查策略\",\"slug\":\"排查策略\",\"link\":\"#排查策略\",\"children\":[]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"AB3/平台/AB4/市场问题处理案例/ABC崩溃处理步骤.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
