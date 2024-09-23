@@ -18,7 +18,7 @@ let { items: sidebarItems3, navbarItems: navbarItems3 } = getSidebarItems(
   "AB4"
 );
 export default defineUserConfig({
-
+  base:"/vuepressRep/",
   lang: "en-US",
   title: "",
   description: "My first VuePress Site",
