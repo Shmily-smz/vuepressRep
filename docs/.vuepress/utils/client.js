@@ -23,7 +23,7 @@ function addLabelImg() {
         if (imgNodes.length === 0) {  
         
           let cesiumImg = document.createElement('img');  
-          cesiumImg.src = "/images/1.png";  
+          cesiumImg.src = "/vuepressRep/images/1.png";  
           cesiumImg.style.width = "13px";  
           cesiumImg.style.height = "13px";  
           p.prepend(cesiumImg); 
@@ -37,7 +37,7 @@ function addLabelImg() {
         if (imgNodes.length === 0) {  
         
           let cesiumImg = document.createElement('img');  
-          cesiumImg.src = "/images/33.png";  
+          cesiumImg.src = "/vuepressRep/images/33.png";  
           cesiumImg.style.width = "13px";  
           cesiumImg.style.height = "13px";  
           a.prepend(cesiumImg); 

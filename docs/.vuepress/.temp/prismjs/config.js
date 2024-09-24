@@ -1,3 +1,3 @@
-import "/Users/wangaoqi/Desktop/docsify/vuepress-starter/node_modules/@vuepress/theme-default/node_modules/@vuepress/plugin-prismjs/node_modules/@vuepress/highlighter-helper/lib/client/styles/base.css"
-import "/Users/wangaoqi/Desktop/docsify/vuepress-starter/node_modules/@vuepress/theme-default/node_modules/@vuepress/plugin-prismjs/lib/client/styles/nord.css"
-import "/Users/wangaoqi/Desktop/docsify/vuepress-starter/node_modules/@vuepress/theme-default/node_modules/@vuepress/plugin-prismjs/node_modules/@vuepress/highlighter-helper/lib/client/styles/line-numbers.css"
+import "/Users/wangaoqi/Desktop/vuepressRep/node_modules/@vuepress/theme-default/node_modules/@vuepress/plugin-prismjs/node_modules/@vuepress/highlighter-helper/lib/client/styles/base.css"
+import "/Users/wangaoqi/Desktop/vuepressRep/node_modules/@vuepress/theme-default/node_modules/@vuepress/plugin-prismjs/lib/client/styles/nord.css"
+import "/Users/wangaoqi/Desktop/vuepressRep/node_modules/@vuepress/theme-default/node_modules/@vuepress/plugin-prismjs/node_modules/@vuepress/highlighter-helper/lib/client/styles/line-numbers.css"

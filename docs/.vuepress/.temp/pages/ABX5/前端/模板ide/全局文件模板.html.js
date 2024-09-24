@@ -1,16 +1,3 @@
-import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/模板ide/全局文件模板.html.vue"
-const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/%E6%A8%A1%E6%9D%BFide/%E5%85%A8%E5%B1%80%E6%96%87%E4%BB%B6%E6%A8%A1%E6%9D%BF.html\",\"title\":\"全局文件模板\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"全局函数模板(index.js)\",\"slug\":\"全局函数模板-index-js\",\"link\":\"#全局函数模板-index-js\",\"children\":[]},{\"level\":2,\"title\":\"index.scss 文件\",\"slug\":\"index-scss-文件\",\"link\":\"#index-scss-文件\",\"children\":[]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/模板ide/全局文件模板.md\"}")
+import comp from "/Users/wangaoqi/Desktop/vuepressRep/docs/.vuepress/.temp/pages/ABX5/前端/模板ide/全局文件模板.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/%E6%A8%A1%E6%9D%BFide/%E5%85%A8%E5%B1%80%E6%96%87%E4%BB%B6%E6%A8%A1%E6%9D%BF.html\",\"title\":\"全局文件模板\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"全局函数模板(index.js)\",\"slug\":\"全局函数模板-index-js\",\"link\":\"#全局函数模板-index-js\",\"children\":[]},{\"level\":2,\"title\":\"index.scss 文件\",\"slug\":\"index-scss-文件\",\"link\":\"#index-scss-文件\",\"children\":[]}],\"git\":{\"updatedTime\":1727145923000,\"contributors\":[{\"name\":\"wangaoqi\",\"email\":\"wangaoqi@agree.com.cn\",\"commits\":1}]},\"filePathRelative\":\"ABX5/前端/模板ide/全局文件模板.md\"}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

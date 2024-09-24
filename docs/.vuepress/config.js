@@ -15,11 +15,10 @@ let { items: sidebarItems2, navbarItems: navbarItems2 } = getSidebarItems(
 );
 
 export default defineUserConfig({
-
+  base:"/vuepressRep/",
   lang: "en-US",
   title: "",
   description: "My first VuePress Site",
-  head: [["script", { type: "text/javascript", src: "/js/base.js" }]],
   clientAppEnhanceFiles: path.resolve(__dirname, "./client.js"),
   plugins: [
     searchPlugin({

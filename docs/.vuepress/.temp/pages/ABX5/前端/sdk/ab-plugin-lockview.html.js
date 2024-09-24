@@ -1,16 +1,3 @@
-import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-plugin-lockview.html.vue"
-const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-plugin-lockview.html\",\"title\":\"ab-plugin-lockview 手势图案解锁组件\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 使用\",\"slug\":\"_2-使用\",\"link\":\"#_2-使用\",\"children\":[{\"level\":3,\"title\":\"2.1 show -- 显示手势图案弹框\",\"slug\":\"_2-1-show-显示手势图案弹框\",\"link\":\"#_2-1-show-显示手势图案弹框\",\"children\":[]},{\"level\":3,\"title\":\"2.2 dismiss -- 关闭手势图案弹框\",\"slug\":\"_2-2-dismiss-关闭手势图案弹框\",\"link\":\"#_2-2-dismiss-关闭手势图案弹框\",\"children\":[]},{\"level\":3,\"title\":\"2.3 setMessage -- 设置提示信息\",\"slug\":\"_2-3-setmessage-设置提示信息\",\"link\":\"#_2-3-setmessage-设置提示信息\",\"children\":[]},{\"level\":3,\"title\":\"2.4 监听手势\",\"slug\":\"_2-4-监听手势\",\"link\":\"#_2-4-监听手势\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-plugin-lockview.md\"}")
+import comp from "/Users/wangaoqi/Desktop/vuepressRep/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-plugin-lockview.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-plugin-lockview.html\",\"title\":\"ab-plugin-lockview 手势图案解锁组件\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 使用\",\"slug\":\"_2-使用\",\"link\":\"#_2-使用\",\"children\":[{\"level\":3,\"title\":\"2.1 show -- 显示手势图案弹框\",\"slug\":\"_2-1-show-显示手势图案弹框\",\"link\":\"#_2-1-show-显示手势图案弹框\",\"children\":[]},{\"level\":3,\"title\":\"2.2 dismiss -- 关闭手势图案弹框\",\"slug\":\"_2-2-dismiss-关闭手势图案弹框\",\"link\":\"#_2-2-dismiss-关闭手势图案弹框\",\"children\":[]},{\"level\":3,\"title\":\"2.3 setMessage -- 设置提示信息\",\"slug\":\"_2-3-setmessage-设置提示信息\",\"link\":\"#_2-3-setmessage-设置提示信息\",\"children\":[]},{\"level\":3,\"title\":\"2.4 监听手势\",\"slug\":\"_2-4-监听手势\",\"link\":\"#_2-4-监听手势\",\"children\":[]}]}],\"git\":{\"updatedTime\":1727145923000,\"contributors\":[{\"name\":\"wangaoqi\",\"email\":\"wangaoqi@agree.com.cn\",\"commits\":1}]},\"filePathRelative\":\"ABX5/前端/sdk/ab-plugin-lockview.md\"}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

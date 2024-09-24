@@ -1,16 +1,3 @@
-import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/旧版本市场文档/昆山农商.html.vue"
-const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/%E6%97%A7%E7%89%88%E6%9C%AC%E5%B8%82%E5%9C%BA%E6%96%87%E6%A1%A3/%E6%98%86%E5%B1%B1%E5%86%9C%E5%95%86.html\",\"title\":\"昆山农商 API 文档\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"平台 API\",\"slug\":\"平台-api\",\"link\":\"#平台-api\",\"children\":[]},{\"level\":2,\"title\":\"SDK API\",\"slug\":\"sdk-api\",\"link\":\"#sdk-api\",\"children\":[]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/旧版本市场文档/昆山农商.md\"}")
+import comp from "/Users/wangaoqi/Desktop/vuepressRep/docs/.vuepress/.temp/pages/ABX5/前端/旧版本市场文档/昆山农商.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/%E6%97%A7%E7%89%88%E6%9C%AC%E5%B8%82%E5%9C%BA%E6%96%87%E6%A1%A3/%E6%98%86%E5%B1%B1%E5%86%9C%E5%95%86.html\",\"title\":\"昆山农商 API 文档\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"平台 API\",\"slug\":\"平台-api\",\"link\":\"#平台-api\",\"children\":[]},{\"level\":2,\"title\":\"SDK API\",\"slug\":\"sdk-api\",\"link\":\"#sdk-api\",\"children\":[]}],\"git\":{\"updatedTime\":1727145923000,\"contributors\":[{\"name\":\"wangaoqi\",\"email\":\"wangaoqi@agree.com.cn\",\"commits\":1}]},\"filePathRelative\":\"ABX5/前端/旧版本市场文档/昆山农商.md\"}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

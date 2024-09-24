@@ -1,16 +1,3 @@
-import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/abx-core-log.html.vue"
-const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/abx-core-log.html\",\"title\":\"abx-core-log\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"使用\",\"slug\":\"使用\",\"link\":\"#使用\",\"children\":[{\"level\":3,\"title\":\"list\",\"slug\":\"list\",\"link\":\"#list\",\"children\":[]},{\"level\":3,\"title\":\"open\",\"slug\":\"open\",\"link\":\"#open\",\"children\":[]},{\"level\":3,\"title\":\"openAll\",\"slug\":\"openall\",\"link\":\"#openall\",\"children\":[]},{\"level\":3,\"title\":\"writeLog\",\"slug\":\"writelog\",\"link\":\"#writelog\",\"children\":[]},{\"level\":3,\"title\":\"info\",\"slug\":\"info\",\"link\":\"#info\",\"children\":[]},{\"level\":3,\"title\":\"error\",\"slug\":\"error\",\"link\":\"#error\",\"children\":[]},{\"level\":3,\"title\":\"warn\",\"slug\":\"warn\",\"link\":\"#warn\",\"children\":[]},{\"level\":3,\"title\":\"debug\",\"slug\":\"debug\",\"link\":\"#debug\",\"children\":[]},{\"level\":3,\"title\":\"fatal\",\"slug\":\"fatal\",\"link\":\"#fatal\",\"children\":[]},{\"level\":3,\"title\":\"日志级别\",\"slug\":\"日志级别\",\"link\":\"#日志级别\",\"children\":[]},{\"level\":3,\"title\":\"日志模块\",\"slug\":\"日志模块\",\"link\":\"#日志模块\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/abx-core-log.md\"}")
+import comp from "/Users/wangaoqi/Desktop/vuepressRep/docs/.vuepress/.temp/pages/ABX5/前端/sdk/abx-core-log.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/abx-core-log.html\",\"title\":\"abx-core-log\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"使用\",\"slug\":\"使用\",\"link\":\"#使用\",\"children\":[{\"level\":3,\"title\":\"list\",\"slug\":\"list\",\"link\":\"#list\",\"children\":[]},{\"level\":3,\"title\":\"open\",\"slug\":\"open\",\"link\":\"#open\",\"children\":[]},{\"level\":3,\"title\":\"openAll\",\"slug\":\"openall\",\"link\":\"#openall\",\"children\":[]},{\"level\":3,\"title\":\"writeLog\",\"slug\":\"writelog\",\"link\":\"#writelog\",\"children\":[]},{\"level\":3,\"title\":\"info\",\"slug\":\"info\",\"link\":\"#info\",\"children\":[]},{\"level\":3,\"title\":\"error\",\"slug\":\"error\",\"link\":\"#error\",\"children\":[]},{\"level\":3,\"title\":\"warn\",\"slug\":\"warn\",\"link\":\"#warn\",\"children\":[]},{\"level\":3,\"title\":\"debug\",\"slug\":\"debug\",\"link\":\"#debug\",\"children\":[]},{\"level\":3,\"title\":\"fatal\",\"slug\":\"fatal\",\"link\":\"#fatal\",\"children\":[]},{\"level\":3,\"title\":\"日志级别\",\"slug\":\"日志级别\",\"link\":\"#日志级别\",\"children\":[]},{\"level\":3,\"title\":\"日志模块\",\"slug\":\"日志模块\",\"link\":\"#日志模块\",\"children\":[]}]}],\"git\":{\"updatedTime\":1727145923000,\"contributors\":[{\"name\":\"wangaoqi\",\"email\":\"wangaoqi@agree.com.cn\",\"commits\":1}]},\"filePathRelative\":\"ABX5/前端/sdk/abx-core-log.md\"}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

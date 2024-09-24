@@ -1,16 +1,3 @@
-import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/index.html.vue"
-const data = JSON.parse("{\"path\":\"/\",\"title\":\"我的首页\",\"lang\":\"en-US\",\"frontmatter\":{\"home\":true,\"title\":\"我的首页\",\"heroImage\":\"/images/1.png\",\"heroText\":\"赞同前端文档详设库\",\"tagline\":\"包含赞同目前所有的文档\",\"actions\":[{\"text\":\"快速进入 →\",\"link\":\"/AB产品知识库/\",\"type\":\"primary\"}],\"features\":[{\"title\":\"简单易用\",\"details\":\"可快速更新与查阅文档。\"},{\"title\":\"高度可定制\",\"details\":\"定制侧边栏展示顺序，添加文档等。\"},{\"title\":\"文档覆盖广\",\"details\":\"后续添加更多文档。\"}],\"footer\":\"ABX5团队 | 版权所有\"},\"headers\":[],\"git\":{\"updatedTime\":1727073471000,\"contributors\":[{\"name\":\"wangaoqi\",\"email\":\"wangaoqi@agree.com.cn\",\"commits\":1}]},\"filePathRelative\":\"README.md\"}")
+import comp from "/Users/wangaoqi/Desktop/vuepressRep/docs/.vuepress/.temp/pages/index.html.vue"
+const data = JSON.parse("{\"path\":\"/\",\"title\":\"我的首页\",\"lang\":\"en-US\",\"frontmatter\":{\"home\":true,\"title\":\"我的首页\",\"heroImage\":\"/images/1.png\",\"heroText\":\"赞同文档详设库\",\"tagline\":\"包含赞同目前所有的文档\",\"actions\":[{\"text\":\"快速进入 →\",\"link\":\"/AB产品知识库/\",\"type\":\"primary\"}],\"features\":[{\"icon\":\"📝\",\"title\":\"反馈\",\"details\":\"通过界面样式和交互动效让用户可以清晰的感知自己的操作\"},{\"icon\":\"🛠️\",\"title\":\"一致性\",\"details\":\"与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念等\"},{\"icon\":\"🚀\",\"title\":\"效率\",\"details\":\"设计简洁直观的操作流程，语言表达清晰且表意明确，让用户快速理解进而作出决策，界面简单直白，让用户快速识别而非回忆，减少用户记忆负担\"}],\"footer\":\"ABX5团队 | 版权所有\"},\"headers\":[],\"git\":{\"updatedTime\":1727145923000,\"contributors\":[{\"name\":\"wangaoqi\",\"email\":\"wangaoqi@agree.com.cn\",\"commits\":2}]},\"filePathRelative\":\"README.md\"}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

@@ -1,16 +1,3 @@
-import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-manager-websocket.html.vue"
-const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-manager-websocket.html\",\"title\":\"ab-manager-websocket@websocket连接\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 事件使用说明\",\"slug\":\"_2-事件使用说明\",\"link\":\"#_2-事件使用说明\",\"children\":[]},{\"level\":2,\"title\":\"3. 方法使用说明\",\"slug\":\"_3-方法使用说明\",\"link\":\"#_3-方法使用说明\",\"children\":[]},{\"level\":2,\"title\":\"4. 使用案例\",\"slug\":\"_4-使用案例\",\"link\":\"#_4-使用案例\",\"children\":[]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-manager-websocket.md\"}")
+import comp from "/Users/wangaoqi/Desktop/vuepressRep/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-manager-websocket.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-manager-websocket.html\",\"title\":\"ab-manager-websocket@websocket连接\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 事件使用说明\",\"slug\":\"_2-事件使用说明\",\"link\":\"#_2-事件使用说明\",\"children\":[]},{\"level\":2,\"title\":\"3. 方法使用说明\",\"slug\":\"_3-方法使用说明\",\"link\":\"#_3-方法使用说明\",\"children\":[]},{\"level\":2,\"title\":\"4. 使用案例\",\"slug\":\"_4-使用案例\",\"link\":\"#_4-使用案例\",\"children\":[]}],\"git\":{\"updatedTime\":1727145923000,\"contributors\":[{\"name\":\"wangaoqi\",\"email\":\"wangaoqi@agree.com.cn\",\"commits\":1}]},\"filePathRelative\":\"ABX5/前端/sdk/ab-manager-websocket.md\"}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}
