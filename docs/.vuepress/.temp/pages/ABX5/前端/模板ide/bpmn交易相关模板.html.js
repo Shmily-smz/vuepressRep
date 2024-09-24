@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/模板ide/bpmn交易相关模板.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/%E6%A8%A1%E6%9D%BFide/bpmn%E4%BA%A4%E6%98%93%E7%9B%B8%E5%85%B3%E6%A8%A1%E6%9D%BF.html\",\"title\":\"bpmn交易模板\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"基础布局\",\"slug\":\"基础布局\",\"link\":\"#基础布局\",\"children\":[{\"level\":3,\"title\":\"frame(基础布局) 说明 {#frame说明}\",\"slug\":\"frame-基础布局-说明-frame说明\",\"link\":\"#frame-基础布局-说明-frame说明\",\"children\":[]}]},{\"level\":2,\"title\":\"focus/blur.ts 模板\",\"slug\":\"focus-blur-ts-模板\",\"link\":\"#focus-blur-ts-模板\",\"children\":[]},{\"level\":2,\"title\":\"bpmn 画面模板\",\"slug\":\"bpmn-画面模板\",\"link\":\"#bpmn-画面模板\",\"children\":[]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/模板ide/bpmn交易相关模板.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

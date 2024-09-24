@@ -1,0 +1,359 @@
+<template><div><h1 id="数据操作-数据操作" tabindex="-1"><a class="header-anchor" href="#数据操作-数据操作"><span>数据操作 {#数据操作}</span></a></h1>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+</div>
+<h2 id="全局数据初始化-全局数据初始化" tabindex="-1"><a class="header-anchor" href="#全局数据初始化-全局数据初始化"><span>全局数据初始化 {#全局数据初始化}</span></a></h2>
+<p>使用场景: 对全局级数据不再允许新增、删除非初始化字段。</p>
+<p>数据类型分为: 全局级数据、交易级数据</p>
+<p>生命周期:</p>
+<ul>
+<li>全局级数据: 适用所有的交易, 但不局限于交易, 针对的是整个工程。</li>
+<li>交易级数据: 贯穿整支交易, 交易被创建时生成, 交易被销毁时销毁。</li>
+</ul>
+<h3 id="前置数据配置函数-predatahandler" tabindex="-1"><a class="header-anchor" href="#前置数据配置函数-predatahandler"><span>前置数据配置函数: preDataHandler</span></a></h3>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> preDataHandler <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@agree/ab-manager-data2'</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>函数参数说明:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ADMConfigItem</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token doc-comment comment">/** adm 文件路径 */</span></span>
+<span class="line">  path<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token doc-comment comment">/** 三层解析上下文 */</span></span>
+<span class="line">  context<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span>moduleName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token doc-comment comment">/** 模型字段 */</span></span>
+<span class="line">  model<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token doc-comment comment">/** 允许直接传值 */</span></span>
+<span class="line">  data<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token doc-comment comment">/** 该字段是否留存到本地,如果刷新浏览器时直接使用本地留存的数据 */</span></span>
+<span class="line">  toSessionStorage<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line highlighted"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">ADMConfig</span> <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>ADMConfigItem<span class="token operator">></span></span>
+<span class="line"></span>
+<span class="line highlighted"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">appendConfig</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token doc-comment comment">/** 所有字段通用配置 本地数据缓存; 如果 ADMConfigItem 中存在该配置, 以 ADMConfigItem 为主 */</span></span>
+<span class="line">  toSessionStorage<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token doc-comment comment">/** 限制数据大小 */</span></span>
+<span class="line">  sizeLimit<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">    sdm<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></span>
+<span class="line">    dm<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></span>
+<span class="line">    localData<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></span>
+<span class="line">    globalData<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line highlighted"><span class="token keyword">const</span> <span class="token function-variable function">preDataHandler</span><span class="token operator">:</span> <span class="token punctuation">(</span>ADMConfig<span class="token punctuation">,</span> appendConfig<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>使用说明:</p>
+<ol>
+<li>前置数据配置需要配置到交易工程入口文件</li>
+<li>必须在 <code v-pre>window.x5.launcher.registerLauncherFn(async () =&gt; {})</code> 参数函数体中使用。</li>
+</ol>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> preDataHandler <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@agree/ab-manager-data2'</span></span>
+<span class="line highlighted">window<span class="token punctuation">.</span>x5<span class="token punctuation">.</span>launcher<span class="token punctuation">.</span><span class="token function">registerLauncherFn</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line"></span>
+<span class="line">  <span class="token keyword">await</span> <span class="token function">preDataHandler</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>这里涉及到函数执行时机。</p>
+</blockquote>
+<h3 id="sdm、dm" tabindex="-1"><a class="header-anchor" href="#sdm、dm"><span>sdm、dm</span></a></h3>
+<p>对 x5 来说, sdm 是全局级数据下的一个属性, dm 是交易级数据。为了兼容旧的版本, x5 提供了对 sdm、dm的初始化的方法。</p>
+<p>x5 期望的是 sdm 的数据是一个 .adm 文件。</p>
+<p>当一个工程内需要对 sdm、dm 数据做初始化限定时(入口文件配置):</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line highlighted"><span class="token keyword">import</span> <span class="token punctuation">{</span> preDataHandler <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@agree/ab-manager-data2'</span></span>
+<span class="line">window<span class="token punctuation">.</span>x5<span class="token punctuation">.</span>launcher<span class="token punctuation">.</span><span class="token function">registerLauncherFn</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line highlighted">  <span class="token keyword">await</span> <span class="token function">preDataHandler</span><span class="token punctuation">(</span></span>
+<span class="line">    <span class="token punctuation">[</span></span>
+<span class="line">      <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">model</span><span class="token operator">:</span> <span class="token string">"sdm"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"sdm.adm"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">context</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">          <span class="token literal-property property">moduleName</span><span class="token operator">:</span> <span class="token string">'BankModule'</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token punctuation">}</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">]</span><span class="token punctuation">,</span> </span>
+<span class="line">    <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token literal-property property">sizeLimit</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token string-property property">"sdm"</span><span class="token operator">:</span> <span class="token number">2048000</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token string-property property">"dm"</span><span class="token operator">:</span> <span class="token number">4096000</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token string-property property">"localData"</span><span class="token operator">:</span> <span class="token number">3145728</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line highlighted">  <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="全局级数据" tabindex="-1"><a class="header-anchor" href="#全局级数据"><span>全局级数据</span></a></h3>
+<p>全局数据做限定时:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> preDataHandler <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@agree/ab-manager-data2'</span></span>
+<span class="line">window<span class="token punctuation">.</span>x5<span class="token punctuation">.</span>launcher<span class="token punctuation">.</span><span class="token function">registerLauncherFn</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">await</span> <span class="token function">preDataHandler</span><span class="token punctuation">(</span></span>
+<span class="line">    <span class="token punctuation">[</span></span>
+<span class="line">      <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">model</span><span class="token operator">:</span> <span class="token string">"全局数据/柜员信息"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"全局数据/柜员信息.adm"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">context</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">          <span class="token literal-property property">moduleName</span><span class="token operator">:</span> <span class="token string">'BankModule'</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">]</span><span class="token punctuation">,</span> </span>
+<span class="line">    <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token literal-property property">sizeLimit</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">globalData</span><span class="token operator">:</span> <span class="token number">30000</span></span>
+<span class="line">      <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">  <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="数据的本地留存" tabindex="-1"><a class="header-anchor" href="#数据的本地留存"><span>数据的本地留存</span></a></h3>
+<p>全局级数据也允许将字段信息保留到 <code v-pre>Session Storage</code> 本地存储 中:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> preDataHandler <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@agree/ab-manager-data2'</span></span>
+<span class="line">window<span class="token punctuation">.</span>x5<span class="token punctuation">.</span>launcher<span class="token punctuation">.</span><span class="token function">registerLauncherFn</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">await</span> <span class="token function">preDataHandler</span><span class="token punctuation">(</span></span>
+<span class="line">    <span class="token punctuation">[</span></span>
+<span class="line">      <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">model</span><span class="token operator">:</span><span class="token string">'全局数据'</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">path</span><span class="token operator">:</span><span class="token string">'全局数据.adm'</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">context</span><span class="token operator">:</span><span class="token punctuation">{</span></span>
+<span class="line">          <span class="token literal-property property">moduleName</span><span class="token operator">:</span><span class="token string">'BankModule'</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line highlighted">        <span class="token literal-property property">toSessionStorage</span><span class="token operator">:</span> <span class="token boolean">true</span></span>
+<span class="line">      <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">]</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>toSessionStorage</code> 属性表示对当前数据做本地留存, 当浏览器刷新时, 会对上次操作的全局级数据直接进行初始化。</p>
+<p>也可以在 <code v-pre>preDataHandler</code> 的第二个参数中配置 <code v-pre>toSessionStorage</code></p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> preDataHandler <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@agree/ab-manager-data2'</span></span>
+<span class="line">window<span class="token punctuation">.</span>x5<span class="token punctuation">.</span>launcher<span class="token punctuation">.</span><span class="token function">registerLauncherFn</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">await</span> <span class="token function">preDataHandler</span><span class="token punctuation">(</span></span>
+<span class="line">    <span class="token punctuation">[</span></span>
+<span class="line">      <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">model</span><span class="token operator">:</span><span class="token string">'全局数据'</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">path</span><span class="token operator">:</span><span class="token string">'全局数据.adm'</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">context</span><span class="token operator">:</span><span class="token punctuation">{</span></span>
+<span class="line">          <span class="token literal-property property">moduleName</span><span class="token operator">:</span><span class="token string">'BankModule'</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">toSessionStorage</span><span class="token operator">:</span> <span class="token boolean">true</span></span>
+<span class="line">      <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">]</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token literal-property property">toSessionStorage</span><span class="token operator">:</span> <span class="token boolean">true</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">  <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果第二参数中配置了<code v-pre>toSessionStorage</code>, 则代表对于第一个参数中所有的选项中, 没有配置 <code v-pre>toSessionStorage</code> 的, 都使用当前这个配置.</p>
+<p><strong>对于 sdm 中 SDMToSessionStorageList 的配置适配:</strong> 允许 <code v-pre>{model: &quot;sdm&quot;}</code> 中对 toSessionStorage 这个配置使用 数组 的格式, 表示 当前数组内的字段都会进行本地留存。也允许使用 boolean , 表示对 sdm.adm 文件内的所有字段进行留存或者不留存</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token operator">...</span></span>
+<span class="line"><span class="token keyword">await</span> <span class="token function">preDataHandler</span><span class="token punctuation">(</span></span>
+<span class="line">  <span class="token punctuation">[</span></span>
+<span class="line">    <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token literal-property property">model</span><span class="token operator">:</span> <span class="token string">"sdm"</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"sdm.adm"</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token literal-property property">context</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">moduleName</span><span class="token operator">:</span> <span class="token string">'BankModule'</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token literal-property property">toSessionStorage</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'UserInfo'</span><span class="token punctuation">]</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token punctuation">]</span></span>
+<span class="line"><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token operator">...</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>当关闭浏览器时, 会清除这些数据的。</p>
+</div>
+<p>全局级数据的扩展:</p>
+<p>由于一旦初始化全局数据之后, 就不允许再对非初始化全局级数据以外的字段信息做设置, x5 提供了一种扩展全局级数据的 API :</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span>patchShareDataModel<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@agree/ab-manager-data2'</span></span>
+<span class="line"><span class="token function">patchShareDataModel</span><span class="token punctuation">(</span><span class="token punctuation">[</span></span>
+<span class="line">  <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token literal-property property">model</span><span class="token operator">:</span> <span class="token string">'patchData'</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token literal-property property">日期</span><span class="token operator">:</span> <span class="token string">''</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line"><span class="token punctuation">]</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此后, 这些数据就被添加到全局数据中的, 可以自由使用这些数据。</p>
+<blockquote>
+<p>这种扩展的方式在全局级数据销毁时就被销毁了, 不会做保留。</p>
+</blockquote>
+<h2 id="api-api" tabindex="-1"><a class="header-anchor" href="#api-api"><span>API {#API}</span></a></h2>
+<p>操作数据的 API 对 bpmn 交易来说是允许直接通过 this 调用的.</p>
+<h3 id="getmodel-key" tabindex="-1"><a class="header-anchor" href="#getmodel-key"><span>_getModel(key)</span></a></h3>
+<p>功能: 获取交易数据</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> zd <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getModel</span><span class="token punctuation">(</span><span class="token string">'终端信息'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>参数类型允许深度索引</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getModel</span><span class="token punctuation">(</span><span class="token string">'UserInfo:user'</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getModel</span><span class="token punctuation">(</span><span class="token string">'UserInfo:user.name'</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token comment">// 相当于 this._getModel('UserInfo').user.name</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>当不传递 key 值时, 返回的是当前交易所有的数据:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> pageData <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>获取 dm 数据示例:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getModel</span><span class="token punctuation">(</span><span class="token string">'dm'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>UserInfo<span class="token punctuation">.</span>name</span>
+<span class="line"><span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getModel</span><span class="token punctuation">(</span><span class="token string">'dm:UserInfo.age'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>注意: 该方法是操作 交易级 数据的</p>
+</div>
+<h3 id="setmodel-key-value" tabindex="-1"><a class="header-anchor" href="#setmodel-key-value"><span>_setModel(key, value)</span></a></h3>
+<p>功能: 设置交易数据</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_setModel</span><span class="token punctuation">(</span><span class="token string">'用户信息'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">工作岗位</span><span class="token operator">:</span> <span class="token string">'web'</span><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>允许深度索引对单个属性做设置:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_setModel</span><span class="token punctuation">(</span><span class="token string">'用户信息:工作岗位'</span><span class="token punctuation">,</span> <span class="token string">'web'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>设置 dm 数据示例:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_setModel</span><span class="token punctuation">(</span><span class="token string">'dm:UserInfo.age'</span><span class="token punctuation">,</span> <span class="token string">'18'</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_setModel</span><span class="token punctuation">(</span><span class="token string">'dm:UserInfo'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'mallll'</span><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>注意: 该方法是操作 交易级 数据的</p>
+</div>
+<h3 id="getglobalmodel-key" tabindex="-1"><a class="header-anchor" href="#getglobalmodel-key"><span>_getGlobalModel(key)</span></a></h3>
+<p>功能: 获取 全局级 数据</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> userInfo <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getGlobalModel</span><span class="token punctuation">(</span><span class="token string">'UserInfo'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>参数允许深度索引:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getGlobalModel</span><span class="token punctuation">(</span><span class="token string">'UserInfo:user'</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getGlobalModel</span><span class="token punctuation">(</span><span class="token string">'UserInfo:user.name'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>当不传递 key 值时, 返回的是整个全局数据:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> globalData <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getGlobalModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>获取 sdm 示例:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getGlobalModel</span><span class="token punctuation">(</span><span class="token string">'sdm:UserInfo.name'</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">const</span> userInfo <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getGlobalModel</span><span class="token punctuation">(</span><span class="token string">'sdm:UserInfo'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>注意: 该方法是操作 全局级 数据的</p>
+</div>
+<h3 id="setglobalmodel-key-value" tabindex="-1"><a class="header-anchor" href="#setglobalmodel-key-value"><span>_setGlobalModel(key, value)</span></a></h3>
+<p>功能: 设置 全局级 数据</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_setGlobalModel</span><span class="token punctuation">(</span><span class="token string">'UserInfo'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'x5'</span><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>允许深度索引对单个属性做设置:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_setGlobalModel</span><span class="token punctuation">(</span><span class="token string">'UserInfo:name'</span><span class="token punctuation">,</span> <span class="token string">'x5'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>对 sdm 数据进行设置示例:</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_setGlobalModel</span><span class="token punctuation">(</span><span class="token string">'sdm:UserInfo.name'</span><span class="token punctuation">,</span> <span class="token string">'lllll'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>注意: 该方法是操作 全局级 数据的</p>
+</div>
+<h3 id="emptyfieldglobalmodel-field" tabindex="-1"><a class="header-anchor" href="#emptyfieldglobalmodel-field"><span>_emptyFieldGlobalModel(field)</span></a></h3>
+<p>功能: 字段置空</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_emptyFieldGlobalModel</span><span class="token punctuation">(</span><span class="token string">'全局数据:终端信息'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>效果: 会将 全局数据.终端信息 内的所有字段(深度索引)置为空字符串, 数组会被清空数据</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>注意: 该方法是操作 全局级 数据的</p>
+</div>
+<h3 id="resetglobaldata-key-value" tabindex="-1"><a class="header-anchor" href="#resetglobaldata-key-value"><span>_resetGlobalData(key, value)</span></a></h3>
+<p>功能: 重置数据</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_resetGlobalData</span><span class="token punctuation">(</span><span class="token string">'sdm:UserInfo'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'malin'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">19</span><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="getpagedatakey-key" tabindex="-1"><a class="header-anchor" href="#getpagedatakey-key"><span>_getPageDataKey(key)</span></a></h3>
+<p>功能: 获取 交易数据 中的所有的 key 值</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> keys <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getPageDataKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="snapshotglobaldata-key" tabindex="-1"><a class="header-anchor" href="#snapshotglobaldata-key"><span>_snapshotGlobalData(key)</span></a></h3>
+<p>功能: 获取 全局数据 的克隆数据</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token comment">// 全局数据</span></span>
+<span class="line"><span class="token keyword">const</span> globalData <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_snapshotGlobalData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 如果存在 sdm 值, 也会包含在其中</span></span>
+<span class="line"><span class="token keyword">const</span> UserInfo <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_snapshotGlobalData</span><span class="token punctuation">(</span><span class="token string">'UserInfo'</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token comment">// 获取sdm</span></span>
+<span class="line"><span class="token keyword">const</span> sdmUserInfo <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_snapshotGlobalData</span><span class="token punctuation">(</span><span class="token string">'sdm:UserInfo'</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="snapshotpagedata" tabindex="-1"><a class="header-anchor" href="#snapshotpagedata"><span>_snapshotPageData()</span></a></h3>
+<p>功能: 获取 交易级数据 的克隆数据</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> pageData <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_snapshotPageData</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="createshadowglobaldata" tabindex="-1"><a class="header-anchor" href="#createshadowglobaldata"><span>_createShadowGlobalData()</span></a></h3>
+<p>功能: 创建 shadow globalData</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token comment">// 1. 创建 shadow</span></span>
+<span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_createShadowGlobalData</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token comment">// 2. 初始化 data</span></span>
+<span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_initShadowGlobalData</span><span class="token punctuation">(</span><span class="token string">'UserInfo'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'shadow data'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">19999</span><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>一旦创建了一个 shadow 后, 后续所有针对 全局级 数据(包括sdm)都是在这个 shadow 上进行的</p>
+<h3 id="deleteshadowglobaldata" tabindex="-1"><a class="header-anchor" href="#deleteshadowglobaldata"><span>_deleteShadowGlobalData()</span></a></h3>
+<p>功能: 删除 shadow</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_deleteShadowGlobalData</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2 id="computed-computed" tabindex="-1"><a class="header-anchor" href="#computed-computed"><span>computed {#computed}</span></a></h2>
+<p>对全局级数据和交易级数据提供了两个计算属性 _globalData 和 _pageData 。</p>
+<p>对于 全局级 和 交易级 数据来说, 各自分别包含了 sdm 和 dm 数据。</p>
+<h3 id="globaldata" tabindex="-1"><a class="header-anchor" href="#globaldata"><span>_globalData</span></a></h3>
+<p>全局级 使用:</p>
+<div class="language-vue line-numbers-mode" data-highlighter="prismjs" data-ext="vue" data-title="vue"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>sdm: {{@sdm:UserInfo.name}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>sdm: {{"@sdm:UserInfo.name"}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>全局: {{@UserInfo:name}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>全局: {{"@UserInfo:name"}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>编译时会将 <code v-pre>@UserInfo:name</code> 转换为 <code v-pre>_globalData.UserInfo &amp;&amp; _globalData.UserInfo.name</code></p>
+</blockquote>
+<p>对数据绑定时:</p>
+<div class="language-vue line-numbers-mode" data-highlighter="prismjs" data-ext="vue" data-title="vue"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token comment">&lt;!-- 使用 @ 的写法 --></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fc-input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@UserInfo:name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fc-input</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fc-input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@sdm:UserInfo.name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fc-input</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>编译时将 @UserInfo:name 转换为 _globalData.UserInfo.name</p>
+</blockquote>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>注意: 该计算属性是操作 全局级 数据的</p>
+</div>
+<h3 id="pagedata" tabindex="-1"><a class="header-anchor" href="#pagedata"><span>_pageData</span></a></h3>
+<p>交易级 使用</p>
+<div class="language-vue line-numbers-mode" data-highlighter="prismjs" data-ext="vue" data-title="vue"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>客户信息.证件选择: {{客户信息:证件类型}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>客户信息.证件选择: {{"客户信息:证件类型"}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>dm: {{dm:UserInfo.name}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>dm: {{"dm:UserInfo.name"}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>编译时会将 <code v-pre>客户信息:证件类型</code> 转换为 <code v-pre>_pageData.客户信息 &amp;&amp; _pageData.客户信息.证件类型</code></p>
+</blockquote>
+<p>对数据绑定:</p>
+<div class="language-vue line-numbers-mode" data-highlighter="prismjs" data-ext="vue" data-title="vue"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fc-input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>用户信息:工作岗位<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fc-input</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>编译时会将 用户信息:工作岗位 转换为 _pageData.用户信息.工作岗位</p>
+</blockquote>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>注意: 该计算属性是操作 交易级 数据的</p>
+</div>
+</div></template>
+
+

@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/abx-core.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/abx-core.html\",\"title\":\"abx-core\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 生命周期函数\",\"slug\":\"_1-生命周期函数\",\"link\":\"#_1-生命周期函数\",\"children\":[{\"level\":3,\"title\":\"1.1 创建\",\"slug\":\"_1-1-创建\",\"link\":\"#_1-1-创建\",\"children\":[]},{\"level\":3,\"title\":\"1.2 销毁\",\"slug\":\"_1-2-销毁\",\"link\":\"#_1-2-销毁\",\"children\":[]}]},{\"level\":2,\"title\":\"2. callPreDoPost\",\"slug\":\"_2-callpredopost\",\"link\":\"#_2-callpredopost\",\"children\":[{\"level\":3,\"title\":\"2.1 参数:\",\"slug\":\"_2-1-参数\",\"link\":\"#_2-1-参数\",\"children\":[]},{\"level\":3,\"title\":\"2.2 示例:\",\"slug\":\"_2-2-示例\",\"link\":\"#_2-2-示例\",\"children\":[]},{\"level\":3,\"title\":\"2.3 返回值:\",\"slug\":\"_2-3-返回值\",\"link\":\"#_2-3-返回值\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/abx-core.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-plugin-embed-scrcu-jieao.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-plugin-embed-scrcu-jieao.html\",\"title\":\"ab-plugin-embed-scrcu-jieao@前端内嵌捷奥影像控件\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 使用\",\"slug\":\"_2-使用\",\"link\":\"#_2-使用\",\"children\":[{\"level\":3,\"title\":\"2.1 init --发送内嵌请求初始化\",\"slug\":\"_2-1-init-发送内嵌请求初始化\",\"link\":\"#_2-1-init-发送内嵌请求初始化\",\"children\":[]},{\"level\":3,\"title\":\"2.2 show --发送内嵌请求初始化显示界面，在init之后立刻执行\",\"slug\":\"_2-2-show-发送内嵌请求初始化显示界面-在init之后立刻执行\",\"link\":\"#_2-2-show-发送内嵌请求初始化显示界面-在init之后立刻执行\",\"children\":[]},{\"level\":3,\"title\":\"2.3 commit --提交\",\"slug\":\"_2-3-commit-提交\",\"link\":\"#_2-3-commit-提交\",\"children\":[]},{\"level\":3,\"title\":\"2.4 showImage --影像调阅\",\"slug\":\"_2-4-showimage-影像调阅\",\"link\":\"#_2-4-showimage-影像调阅\",\"children\":[]},{\"level\":3,\"title\":\"2.5 finish --执行销毁捷奥影像exe，关闭窗体\",\"slug\":\"_2-5-finish-执行销毁捷奥影像exe-关闭窗体\",\"link\":\"#_2-5-finish-执行销毁捷奥影像exe-关闭窗体\",\"children\":[]},{\"level\":3,\"title\":\"2.6 base64encode --对字符串以Base64编码\",\"slug\":\"_2-6-base64encode-对字符串以base64编码\",\"link\":\"#_2-6-base64encode-对字符串以base64编码\",\"children\":[]},{\"level\":3,\"title\":\"2.7 base64decode --解码Base64字符串\",\"slug\":\"_2-7-base64decode-解码base64字符串\",\"link\":\"#_2-7-base64decode-解码base64字符串\",\"children\":[]},{\"level\":3,\"title\":\"2.8 bizCopy --批次拷贝\",\"slug\":\"_2-8-bizcopy-批次拷贝\",\"link\":\"#_2-8-bizcopy-批次拷贝\",\"children\":[]},{\"level\":3,\"title\":\"2.9 extrafile --添加图片\",\"slug\":\"_2-9-extrafile-添加图片\",\"link\":\"#_2-9-extrafile-添加图片\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-plugin-embed-scrcu-jieao.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

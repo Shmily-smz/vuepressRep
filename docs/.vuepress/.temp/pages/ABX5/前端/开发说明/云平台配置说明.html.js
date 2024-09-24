@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/开发说明/云平台配置说明.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E/%E4%BA%91%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E.html\",\"title\":\"云平台配置说明\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"文件分发、过滤配置\",\"slug\":\"文件分发、过滤配置\",\"link\":\"#文件分发、过滤配置\",\"children\":[{\"level\":3,\"title\":\"abm 配置文件查看\",\"slug\":\"abm-配置文件查看\",\"link\":\"#abm-配置文件查看\",\"children\":[]},{\"level\":3,\"title\":\"aarm 配置文件查看\",\"slug\":\"aarm-配置文件查看\",\"link\":\"#aarm-配置文件查看\",\"children\":[]},{\"level\":3,\"title\":\"preference.properties\",\"slug\":\"preference-properties\",\"link\":\"#preference-properties\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/开发说明/云平台配置说明.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

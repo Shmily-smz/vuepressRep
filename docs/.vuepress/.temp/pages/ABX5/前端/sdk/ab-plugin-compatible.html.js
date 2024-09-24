@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-plugin-compatible.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-plugin-compatible.html\",\"title\":\"ab-plugin-compatible @兼容操作类组件\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 使用\",\"slug\":\"_2-使用\",\"link\":\"#_2-使用\",\"children\":[{\"level\":3,\"title\":\"2.1 compatibleCreateComposite--兼容模式下创建交易复合容器\",\"slug\":\"_2-1-compatiblecreatecomposite-兼容模式下创建交易复合容器\",\"link\":\"#_2-1-compatiblecreatecomposite-兼容模式下创建交易复合容器\",\"children\":[]},{\"level\":3,\"title\":\"2.2 compatibleUpdateViewFocus--刷新焦点（在兼容模式下交易切换使用）\",\"slug\":\"_2-2-compatibleupdateviewfocus-刷新焦点-在兼容模式下交易切换使用\",\"link\":\"#_2-2-compatibleupdateviewfocus-刷新焦点-在兼容模式下交易切换使用\",\"children\":[]},{\"level\":3,\"title\":\"2.3 compatibleOpenTrade--兼容打开交易\",\"slug\":\"_2-3-compatibleopentrade-兼容打开交易\",\"link\":\"#_2-3-compatibleopentrade-兼容打开交易\",\"children\":[]},{\"level\":3,\"title\":\"2.4 compatibleCloseTrade--兼容关闭交易\",\"slug\":\"_2-4-compatibleclosetrade-兼容关闭交易\",\"link\":\"#_2-4-compatibleclosetrade-兼容关闭交易\",\"children\":[]},{\"level\":3,\"title\":\"2.5 compatibleUpdateTellerInfo--兼容修改柜员信息\",\"slug\":\"_2-5-compatibleupdatetellerinfo-兼容修改柜员信息\",\"link\":\"#_2-5-compatibleupdatetellerinfo-兼容修改柜员信息\",\"children\":[]},{\"level\":3,\"title\":\"2.6 compatibleOpen3xConfig--打开3.0外设配置\",\"slug\":\"_2-6-compatibleopen3xconfig-打开3-0外设配置\",\"link\":\"#_2-6-compatibleopen3xconfig-打开3-0外设配置\",\"children\":[]},{\"level\":3,\"title\":\"2.7 compatibleSendMessage--给3.0发送消息\",\"slug\":\"_2-7-compatiblesendmessage-给3-0发送消息\",\"link\":\"#_2-7-compatiblesendmessage-给3-0发送消息\",\"children\":[]},{\"level\":3,\"title\":\"2.8 compatibleGetLtsOid--兼容获取老oid\",\"slug\":\"_2-8-compatiblegetltsoid-兼容获取老oid\",\"link\":\"#_2-8-compatiblegetltsoid-兼容获取老oid\",\"children\":[]},{\"level\":3,\"title\":\"2.9 compatibleClearTellerInfo --清空3.0tellerinfo信息\",\"slug\":\"_2-9-compatiblecleartellerinfo-清空3-0tellerinfo信息\",\"link\":\"#_2-9-compatiblecleartellerinfo-清空3-0tellerinfo信息\",\"children\":[]},{\"level\":3,\"title\":\"2.10 compatibleHideDomainDialog --兼容隐藏弹窗\",\"slug\":\"_2-10-compatiblehidedomaindialog-兼容隐藏弹窗\",\"link\":\"#_2-10-compatiblehidedomaindialog-兼容隐藏弹窗\",\"children\":[]},{\"level\":3,\"title\":\"2.11 compatibleOpenTradeWindow --以windows方式打开兼容交易\",\"slug\":\"_2-11-compatibleopentradewindow-以windows方式打开兼容交易\",\"link\":\"#_2-11-compatibleopentradewindow-以windows方式打开兼容交易\",\"children\":[]},{\"level\":3,\"title\":\"2.12 compatibleGetLtsStarted--兼容获取老客户端启动状态\",\"slug\":\"_2-12-compatiblegetltsstarted-兼容获取老客户端启动状态\",\"link\":\"#_2-12-compatiblegetltsstarted-兼容获取老客户端启动状态\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-plugin-compatible.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

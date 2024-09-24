@@ -1,0 +1,21 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "env.d.ts", 
+    "pages/**/*.vue", 
+    "page/**/*", 
+    "scene/**/*.vue", 
+    "scene/**/*"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

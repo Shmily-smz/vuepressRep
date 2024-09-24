@@ -1,0 +1,314 @@
+前端：
+    feat: 埋点
+    添加历史节点插入功能
+    fix: 修复socket返回的数据中dm值没有被设置到dm本身的问题
+    feat: _createComponent 方法暴露给 lfc 交易的 this 实例
+    修复bpmn交易混入ab5的函数报错问题
+    feat: 移除数据跳转时数据还原
+    修复abx-env包生成ts文件报错的问题
+    修复socket消息接收异常的问题
+    添加关闭类型
+    关键字监听
+    修复同步打开时没有遮罩层的问题;打开面板时设置默认target为交易容器
+    修改版本号
+    完善channel
+    Merge "feat: bpmn交易节点跳转数据更新时,dm数据不允许直接进行覆盖更新,保留已有数据" into master_merged
+    新增获取交易面板上已经打开的交易路径集合的方法;复面板的change方法打开交易时不触发的问题
+    feat: bpmn交易节点跳转数据更新时,dm数据不允许直接进行覆盖更新,保留已有数据
+    新增获取交易面板上是否还有交易的方法
+    trade2升级小版本
+    修复交易创建后的时机问题
+    fix: 修复ab-manager-burypoint埋点与x5交易不适配问题&&修复ab-logger重复初始化导致配置失效问题
+    修复交易管理
+    修复abx5交易中切换面板change事件不触发问题
+    修复require问题
+    根据交易类型不同为容器增加不同类名
+    Merge "修改:检查sdk下的package.json并更新依赖" into master_merged
+    修改:检查sdk下的package.json并更新依赖
+    修改scriptCache挂载到主应用的window上的问题
+    修复嵌套auf交易关闭时查找路径报错的问题
+    修改错误参数
+    新增配置当若干时间内心跳未返回则判断网络连接中断重新连接
+    feat: 通讯遮罩样式修改
+    清除script缓存增加开发模式的判断
+    添加虚机部署方式
+    fix: 修复编译时对require指定为__abxLoad__输出文件运行时报错问题
+    feat: 编译时 register 注册函数新增 var require=__abxLoad__
+    完善热更新
+    Merge "修改:编译dts时报错处理及对应sdk版本更新" into master_merged
+    修改:编译dts时报错处理及对应sdk版本更新
+    模块扫描优化
+    优化加载速度
+    fix: 修复默认遮罩不显示问题
+    feat: bpmn进行流程请求时,判断socket连接状态,如果处于断开状态,直接抛出错误
+    完善交易创建时的错误处理
+    修改:ab-manager-auf,ab-manager-trade内@types整理,处理对应.d.ts生成时的报错
+    修复关闭交易异常
+    feat: ab-manager-page 页面管理获取页面时使用abxImport,弃用require
+    feat: 部分包package.json 文件内容修改,目的是为了修复编译时包找不到报错问题
+    修改:编译生成ab-manage-auf的dist目录,修改更新包的版本号及更新内容
+    perf: 路径别名匹配优化, 解决已经被处理过的路径多次获取别名问题
+    完善错误处理参数
+    fix: 删除jsrsasign-util依赖,改包是node环境使用,x5运行时不需要
+    整理ts
+    fix: 修复abx-launcher样式依赖资源没有编译问题
+    feat: 查找别名路径时,node_modules下的包直接返回
+    修复socket连接失败问题
+    feat: rcd 文件允许加载
+    完善交易还原
+    修改:文件上传下载修改,修改package配置文件
+    交易还原:添加遮照，添加组件状态历史，添加数据还原
+    fix: 修复打开bpmn交易时,因为容器组件获取_tradeId失败导致DataModel自己生成tradeId
+    feat: dm 获取数据时首先从dm对象本身获取,获取不到则从_pageData获取
+    Merge "feat: 优化别名查询,记录匹配过的路径名,匹配时走缓存" into master_merged
+    feat: 优化别名查询,记录匹配过的路径名,匹配时走缓存
+    修复热更新问题
+    交易还原：数据还原
+    修改:将abx-plugin-file文件操作合并到ab-plugin-file内
+    修复还原交易关闭时的hooksRegistry报错的问题
+    Merge "修改:修改ab-plugin-adaas插件内容" into master_merged
+    修改:修改ab-plugin-adaas插件内容
+    修复auf中的交易和全局注册的errorCaptured函数不执行的问题
+    配置交易重复打开
+    fix: 修复 @agree/ab-manager-auf/dist/auf-panel/index.css 找不到问题
+    feat: 弹窗, 当父盒子没有高度时,默认给一个高度,撑开盒子
+    Merge "fix: 修复 undefAll of undefined" into master_merged
+    fix: 修复 undefAll of undefined
+    模块扫描排除node_mdoules
+    feat: bpmn 交易渲染lfc文件时提供App参数:vm实例,run方法this提供dm、sdm
+    Merge "扫描模块由递归扫描修改为只扫描第一层目录" into master_merged
+    扫描模块由递归扫描修改为只扫描第一层目录
+    fix: 修复FocusManager mixin 导致报错: cannot read property 'components' of undefined
+    修复json查找失败问题
+    修复closepanel的问题和auf的第一个lfc节点中App无法获取数据的问题
+    完善交易还原
+    feat: 设置dm值时不再对bpmn交易的globalArgs做限制
+    feat: 交易通讯遮罩添加默认遮罩
+    添加获取交易类型
+    兼容initTarget
+    fix: 修复打开auf交易时,入口文件为vue时不适配问题
+    兼容onClose
+    完善交易路径的记录
+    兼容AB5API
+    feat: auf 交易入口指定为json文件,从json文件中找到App.vue,并传入配置flowConfig
+    Merge "feat: bpmn交易对socket下发数据中只将contex.dm的数据挂载到this.dm身上" into master_merged
+    Merge "feat: bpmn 交易提交、下发的数据挂载到 dm 对象上" into master_merged
+    feat: bpmn交易对socket下发数据中只将contex.dm的数据挂载到this.dm身上
+    feat: bpmn 交易提交、下发的数据挂载到 dm 对象上
+    回放焦点问题
+    完善回放
+    修复错误钩子函数的this指向
+    完善错误处理this
+    优化依赖查找
+    修复auf焦点问题
+    修复关闭面板时数据报错的问题
+    增加context声明的方法类型
+    兼容新旧交易的打开方式
+    增加targetId判空
+    新增全局设置容器样式的方法
+    完善旧交易的打开
+    兼容旧交易的API
+    isModal参数放入containOptions内;修复datamixin中获取tradeID的问题;补充IContext的方法声明
+    添加旧交易的混入
+    fix: 修复弹窗获取不到targetId时报错问题
+    feat: 数据混入对象拆分:page、global、data
+    添加全局tradeId
+    修复auf上一步的onshow不更新的问题，build-dts命令放开data2和trade2
+    修复移动柜面关闭window失败的问题
+    添加deloyenv
+    window实现active和getStatus
+    完善激活事件
+    只在切换过程中触发active
+    添加显示隐藏钩子函数
+    feat: pad 端适配
+    完善错误处理
+    Merge "auf增加onshow onhide" into master_merged
+    auf增加onshow onhide
+    完善日志
+    修复tab面板关闭再打开的bug
+    完善面板打开子交易
+    修改change
+    完善激活状态
+    增加container.getStatus
+    增加bookPanel的id
+    sdm dm赋值由beforeMount改到created,tradeSDK的多交易面板支持change
+    feat: mask 遮罩抽离,所有交易通用
+    Merge "添加激活管理" into master_merged
+    添加激活管理
+    增加容器的change和maxTradeSize
+    完善交易关联关闭
+    fix: 修复使用preDataHandler导致死循环报错问题
+    添加target记录器
+    dec: 数据操作 ts 类型声明修复
+    添加target记录器
+    修复auf交易中_onUnmountedTrade生命周期不生效的问题
+    Merge "feat: preDatahandler函数中本地留存toSessionStorage适配 SDMToSessionStorageList" into master_merged
+    feat: preDatahandler函数中本地留存toSessionStorage适配 SDMToSessionStorageList
+    修复移动柜面无法正确打开交易的bug
+    添加关闭面板前钩子函数
+    Merge "添加关闭后钩子函数:auf" into master_merged
+    添加关闭后钩子函数:auf
+    配合preDataHandler方法修改abx-launcher中初始化数据相关方法
+    feat: preDataHandler数据前置配置新增sdm.adm类型的配置
+    添加关闭交易后钩子函数
+    change data
+    feat: 初始化新增配置 sizeLimit
+    统一tab以及book的激活事件
+    Merge "是否取消关闭提示报错" into master_merged
+    是否取消关闭提示报错
+    fix bookContainer
+    update aui-m
+    aufpanel mixin dataManagerMixin
+    传递消息：给交易
+    book add customStyle
+    完善文档，更新组件库
+    路径别名处理
+    完善翻页
+    fix book
+    添加翻页处理
+    Merge "add div tabContainer" into master_merged
+    完善消息传递
+    add div tabContainer
+    add book
+    添加消息记录器
+    添加页面间消息传递机制
+    feat: _globalData 使用代理, 允许设置空值
+    修改交易内对容器类型的判断
+    完善基础容器
+    添加基础类型的容器
+    完善状态管理-tab
+    docs: 刷新浏览器编译命令文档补充
+    添加tab状态记录器
+    doc: 数据操作文档补充
+    feat: 新增扩展全局数据功能
+    rebase
+    feat: 全局数据允许设置本地缓存,刷新页面时重新设置
+    修改:全局样式,全局函数文档
+    doc: 数据操作、编译命令文档补充
+    rebase
+    如何编写文档
+    update auf
+    add scroll
+    新增获取交易路径API
+    update doc
+    调整目录
+    规范sdk
+    build文档
+    doc: 文档补全: 数据操作、引入资源方式、编译命令
+    编写文档说明
+    修复moduleName的查找
+    修复面板无法等待的问题
+    文档:服务说明
+    新手简介
+    update provider
+    adm使用
+    fix log
+    修改:全局函数定义规范
+    修改:镜像构建
+    修改:云平台配置说明、全局函数定义规范、preference
+    修改:全局函数定义规范,云平台配置说明
+    修改文档配置
+    修改文档配置
+    fix auf
+    update doc
+    添加配置文件
+    删除冗余文件
+    调整目录
+    合并config.ts
+    新手简介
+    全局函数定义规范修改
+    doc: 编译命令补充&引入资源方式补充&交易流程补充
+    update doc
+    change log
+    完善生命周期文档
+    fix provider
+    lfc.md
+    doc: 资源引入方式说明
+    fix auf
+    add copymd
+    style: 流程操作更换文件
+    工程结构说明
+    doc: 文档 流程操作
+    ABX5工程结构说明
+    Merge branch 'master_merged' of 192.168.180.113:ABX_WEB/abx_platform into master_merged
+    fix deletepanel
+    fix singelPanel tab
+编译：
+    更新组件库
+    Merge "添加插入节点历史示例"
+    添加插入节点历史示例
+    feat: app.js 替换&&收集编译文件时过滤文件后缀抽离
+    fix: 修复 yarn clean 删除编译输出目录时,cache、log文件路径查找失败问题
+    fix: 修复.rcd文件在web编译环境下没有实时编译问题
+    Merge "fix: 修复引入node_modules下单文件时,没有进行模块收集并且没有进行单独编译问题"
+    fix: 修复引入node_modules下单文件时,没有进行模块收集并且没有进行单独编译问题
+    修改:测试交易三添加focusJs文件及abx-section显示.
+    fix: 修复win环境下获取样式文件父级依赖死循环问题;修复.rcd文件web环境未实时编译问题
+    feat: 单文件目录样式文件反向依赖文件编译
+    feat: 完善样式依赖更新后父级没有更新问题:删除、更新功能 && 新增rcdx文件,对该文件下的资源进行编译
+    feat: 样式文件编译时记录依赖关系,一个文件编译,被依赖的也要编译
+    feat: app.js 文件监听忽略 .class 和 .java 文件
+    feat: app.js web环境启动脚本中弃用 yarn , 采用 node 命令执行
+    feat: 编译文件时不再主动查询是否真实存在,运行时进行判断
+    feat: 编译时需要对所有缓存的sdk单文件内容计算是否需要重新编译,满足条件的需重新编译
+    更新组件库
+    添加默认loading测试
+    feat: 编译时新增配置-sdk收集依赖项时允许排除sdk依赖项收集
+    fix: 修复以绝对路径引入.rcd文件查找不到编译报错问题
+    feat: mock修改,对.rcd文件的请求设置解析格式,使用json解析
+    fix: 修复编译输出目录无故多出fonts/ 目录文件
+    添加quill的测试
+    feat: 编译时 require 指定为 __abxLoad__, 并对 vue-quill-editor 包拷贝时进行依赖收集
+    feat: 编译时 register 注册函数新增 var require=__abxLoad__
+    更新aarm版本
+    fix: 修复 vue-quill-editor 包编译失败问题
+    修复组件库版本异常问题
+    添加循环依赖测试
+    feat: plugin: 修改 webpack 定义的数据 var __webpack_exports__ = {} ; x5 为了解决循环引用问题
+    style: 交易中引入依赖包未在工程依赖中添加时,输出报错日志
+    添加还原示例
+    feat: rcd 文件拷贝
+    完善交易还原示例
+    fix: 修复v-model中绑定交易数据时,因空格导致获取数据失败的问题
+    添加还原测试
+    完善还原示例
+    feat: .swf 文件进行拷贝
+    完善onClose示例
+    fix: 修复 aft 静态目录差量编译不生效问题
+    添加回放测试示例
+    增加panelMixinabx5方法测试例子
+    修复全局数据没注册的问题
+    完善兼容示例
+    auf交易的还原例子实现
+    添加旧交易打开示例
+    add data test
+    Merge "完善激活的示例"
+    完善激活的示例
+    增加测试change事件的交易
+    完善关闭示例
+    添加adm测试
+    添加关闭后钩子函数测试
+    添加sdm.adm
+    测试退出登录在进入画面不渲染问题
+    增加消息传递缓存示例
+    添加消息传递测试示例
+    feat: 编译vue文件时对vue示例新增__file 属性 地址为当前文件
+    fix: 修复mustache模版语法编译全局数据、交易数据对路径字段编译报错问题
+    完善交易示例：将AB5打开交易的方式修改成ABX5
+    测试面板切换
+    feat: --reload 执行参数, 允许开发时更新编译后刷新浏览器
+    test: 测试修改扩展全局数据
+    test: 测试扩展全局数据信息
+    test: 测试全局数据本地留存数据功能
+    feat: 对vue文件中mastache语法的交易/全局数据展示做编译处理
+    feat: bpmn交易模板、基础布局模板
+    feat: 编译命令 yarn clean 移除log cache dist 三个文件夹
+    feat: install signature_pad
+    添加vue的eslint插件,执行lint命令时检查错误,添加参数--fix,可解决部分语法问题.
+    feat: require.context 编译处理,引入资源时使用__abxLoad__
+    修改:eslint升级后配置文件修改
+    fix: 修复vue文件中less样式对less函数编译失败问题&修复.less文件对独立的函数文件编译失败问题
+    test: 测试资源
+    eslint更新为8.29.0版本
+    交易报错修改、三层解析测试、组件库更新
+    修改测试交易

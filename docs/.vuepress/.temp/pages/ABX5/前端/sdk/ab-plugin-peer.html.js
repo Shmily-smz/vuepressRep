@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-plugin-peer.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-plugin-peer.html\",\"title\":\"ab-plugin-peer@通讯组件\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 事件方法的使用\",\"slug\":\"_2-事件方法的使用\",\"link\":\"#_2-事件方法的使用\",\"children\":[{\"level\":3,\"title\":\"2.1 初始化peer通讯单元。\",\"slug\":\"_2-1-初始化peer通讯单元。\",\"link\":\"#_2-1-初始化peer通讯单元。\",\"children\":[]},{\"level\":3,\"title\":\"2.2 发送同步消息（有返回值）\",\"slug\":\"_2-2-发送同步消息-有返回值\",\"link\":\"#_2-2-发送同步消息-有返回值\",\"children\":[]},{\"level\":3,\"title\":\"2.3 发送异步消息\",\"slug\":\"_2-3-发送异步消息\",\"link\":\"#_2-3-发送异步消息\",\"children\":[]},{\"level\":3,\"title\":\"2.4 注册路由\",\"slug\":\"_2-4-注册路由\",\"link\":\"#_2-4-注册路由\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-plugin-peer.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,1 @@
+export const depTypes = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies']

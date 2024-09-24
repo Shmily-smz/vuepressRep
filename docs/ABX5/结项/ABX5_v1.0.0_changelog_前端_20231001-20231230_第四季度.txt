@@ -1,0 +1,160 @@
+编译：
+    feat: ab-manager-data replace ab-manager-data2
+    feat: 处理require.context文件弃用loader方式,改用babel-plugin的方式,优点->对每一个文件都会减少转换ast的次数
+    添加单画面还原测试
+    修改:多入口,多模块编译时判断入口文件对象是否为空
+    Merge "修改:多入口,多模块编译时channel判断"
+    修改:多入口,多模块编译时channel判断
+    feat: 依赖信息获取缓存->当package.json文件并未发生改变时,读取缓存信息,不进行索引
+    fix: 路径问题适配win
+    feat: webpack编译vue文件时,采用多入口、多模块输出 & 保留多线程方案代码
+    修改:凭证影像内印章随滚动条运动
+    feat: 新增编译命令 --noInject, 允许devConfig的配置不再注入到ab-html中
+    feat: --id 拷贝资源文件时对abx/denpendencies.json 文件也需要拷贝处理
+    添加动态加载测试
+    style: 版本号修正
+    feat: vue文件不在处理require方法,直接返回__abxLoad__;& 相对路径直接返回__abxLoad__
+    style: 版本号5.0.5
+    feat: 新增配置requireContextSyntax指定文件编译require.context语法
+    feat: 编译完成后对js、ts、vue文件内部写入hash值 & 添加 --id 命令,允许编译完成后对编译后的文件拷贝到指定id文件下
+    feat: --reload 编译刷新浏览器参数适配 ws 版本
+    feat: vue文件暂时不使用swc编译script内容
+    feat: 编译时对 @agree 下的sdk内部的 node_modules 目录排除拷贝动作
+    fix: 修复编译报错：uglifycss: unable to press  no such file or deirectory. & 取消 config.json 配置默认参数
+    feat: 监控sdk app.js 文件适配 @agree/cli-bundless 编译
+    style: 注释报错代码
+    test: 测试signature_pad 包找不到问题
+    feat: 编译import()动态导入函数时,对转换后的abxDynImport方法参数做处理,传递模块路径和上下文
+    feat: 编译js、ts文件时,针对混淆压缩编译命令作处理
+    fix: 修复编译监听模式下.rcd文件没有实时更新问题
+    feat: vue文件编译时,对script内部的import()动态导入函数作处理
+    Merge "fix: 修复vue文件中style样式lang=scss使用/deep/语法编译警告问题"
+    fix: 修复vue文件中style样式lang=scss使用/deep/语法编译警告问题
+    添加:新增凭证印章查看组件
+    Merge "fix: 修复workspace下package.json的依赖收集失败问题"
+    fix: 修复workspace下package.json的依赖收集失败问题
+    fix: 修复dependencies文件收集依赖信息时依赖重复问题
+    feat: 新增编译脚本node_modules包运行时命令
+    feat: 新增编译脚本node_modules包运行时命令
+    feat: scripts 编译脚本添加package.json
+    feat: 编译资源时排除编译脚本包的信息收集
+    更新依赖
+    feat: 编译脚本适配node_modules目录
+    添加面板切换示例
+    feat: swc-loader 替换babel-loader & 修改压缩配置,采用swc压缩方案
+    feat: 编译命令兼容:pnpm、npm
+    feat: swc 配置修改: 压缩混淆
+    feat: 控制台输出修改 & 编译js、ts文件采用swc直接编译,弃用webpack
+    添加重置示例
+    feat: 收集依赖信息时,舍弃@agree下的某个包中的 node_modules 的信息收集
+    完善多渠道示例
+    feat: 引入图片路径处理调整,移除公共路径拼接参数
+    feat: vue文件中src相对路径转换为工程名路径&编译时不对别名路径做转换,交给运行时处理
+    feat: 监听文件变化时对改变的文件做hash留存，当二次编译时，判断文件 hash 是否发生改变，当未发生改变时不进行编译处理
+    添加挂起唤醒测试
+    添加插入节点的示例
+    feat: 输出依赖信息文件 .abx 文件替换为 abx 文件
+    feat: 埋点
+    回放测试
+    Merge "fix: 修复注册函数第二个参数target值没有添加后缀导致运行时找不到的问题"
+    fix: 修复注册函数第二个参数target值没有添加后缀导致运行时找不到的问题
+    添加b主区测试交易
+    fix: 修复单文件sdk引入时,读取hash失败问题
+    fix: 修复单文件sdk文件依赖被移除后不再编译问题
+    feat: trade-cache 交易缓存修改-> 读取hash前先判断文件最后修改时间是否发生变动,多一层判断条件提升性能
+    测试:跳过、唤醒、挂起接口
+    feat: 新增ignoreFilePath字段, 允许对该字段下的目录进行排除,不在收集编译
+    
+前端：
+    feat: ab-manager-data merge ab-manager-data2
+    新增属性允许交易去挂载方法
+    Merge "新增$getComponentStateAndValue方法获取页面上组件的状态和值" into master_merged
+    新增$getComponentStateAndValue方法获取页面上组件的状态和值
+    修复dts报错
+    单画面还原
+    修改:abx-platform-mixins添加xmlToJson方法
+    完善通讯结构
+    删除冗余字符
+    修复多面板的change事件参数异常问题
+    修复:ab-core内订阅后无法触发回调的问题
+    修改:callYanYin方法传参修改
+    新增:ab-plugin-yanyin调用验印组件
+    完善版本号
+    Merge "完善auf引用" into master_merged
+    完善auf引用
+    feat: 版本号修正 & 编译.d.ts 时排除css样式文件
+    兼容移动端低版本
+    feat: 默认遮罩添加超时关闭逻辑
+    完善静态资源加载
+    完善运行时动态加载以及require的加载
+    feat: 版本好修正&MessageManager参数options做兼容
+    fix: 修复移动端获取resourcePath 配置失败问题
+    Merge "增加交易页面标题" into master_merged
+    增加交易页面标题
+    完善页签切换
+    完善版本号
+    style: 版本号修正
+    feat: pad端适配:socket采用壳子创建、提供一个资源请求根路径配置resourcePath
+    页面中使用 **/ 的文件生产模式下不进行缓存
+    添加切换tab
+    添加:ABX5服务相关文件操作迁移至MQFile
+    完善socket连接
+    修改:请求遮罩关闭时不清空值
+    整理包资源
+    整理依赖信息
+    完善package.json
+    统一版本号
+    添加tab页签切换功能
+    完善关闭提示
+    完善同步遮照自定义
+    完善版本号
+    修复还原后关闭交易报错问题
+    完善重置时数据还原
+    增加publish命令
+    处理dom没有父级元素的报错
+    Merge "修复生命周期异常问题" into master_merged
+    修复生命周期异常问题
+    feat: dm数据下发时进行合并,以下发的数据为准
+    pity以及keywords的获取从router修改为meta.nextStep
+    Merge "内存泄漏相关修改" into master_merged
+    修改:abx-monitor事件监听与移除,abx-core移除事件及销毁loading
+    内存泄漏相关修改
+    完善版本号
+    完善多渠道加载
+    feat: 对流程操作做埋点信息记录
+    去掉全局端的概念
+    修复change事件中获取交易实例失败的问题
+    完善渠道资源加载
+    完善挂起唤醒接口
+    完善节点的回跳重置略过判断
+    修复异常引用
+    修复插入节点异常问题
+    完善还原、优化交易历史的数据量
+    完善还原
+    Merge "修复页面重置时焦点报错问题" into master_merged
+    修复页面重置时焦点报错问题
+    style: version update
+    feat: 埋点回调sdm、dm数据传入
+    修复回放异常问题
+    修复上一步异常问题
+    修复关键字监听失败问题
+    修改map结构为object
+    完善关键字监听
+    fix: 修复abx-shared语法报错问题
+    style: 版本号变动
+    feat: bpmn 交易执行lfc文件时,对executeAsync方法的实例添加this._creatComponent方法
+    修复生命周期报错问题：兼容vue版本
+    更新版本号
+    回放略过插入的节点
+    修复页面未渲染完成前获取不到实例的问题
+    添加略过接口
+    回放需要过滤插入的节点
+    Merge "对未传入getDomain的情况做兼容处理" into master_merged
+    对未传入getDomain的情况做兼容处理
+    Merge "修改:跳过、唤醒、挂起API参数默认为空对象" into master_merged
+    修改:跳过、唤醒、挂起API参数默认为空对象
+    完善ab-plugin-client声明文件
+    Merge "修复关闭子面板报错问题" into master_merged
+    修复关闭子面板报错问题
+    修改:添加跳过、挂起、唤醒对应API
+    新增获取客户端Ip,排除虚拟网卡影响

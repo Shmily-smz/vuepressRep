@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-manager-service.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-manager-service.html\",\"title\":\"ab-manager-service@服务管理\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入并初始化\",\"slug\":\"_1-引入并初始化\",\"link\":\"#_1-引入并初始化\",\"children\":[]},{\"level\":2,\"title\":\"2. 发送请求\",\"slug\":\"_2-发送请求\",\"link\":\"#_2-发送请求\",\"children\":[{\"level\":3,\"title\":\"2.1 方法1\",\"slug\":\"_2-1-方法1\",\"link\":\"#_2-1-方法1\",\"children\":[]},{\"level\":3,\"title\":\"2.2 方法2\",\"slug\":\"_2-2-方法2\",\"link\":\"#_2-2-方法2\",\"children\":[]}]},{\"level\":2,\"title\":\"3. 自定义形式\",\"slug\":\"_3-自定义形式\",\"link\":\"#_3-自定义形式\",\"children\":[{\"level\":3,\"title\":\"3.1 自定义参数形式(customData)\",\"slug\":\"_3-1-自定义参数形式-customdata\",\"link\":\"#_3-1-自定义参数形式-customdata\",\"children\":[]},{\"level\":3,\"title\":\"3.2 自定义config形式(customConfig)\",\"slug\":\"_3-2-自定义config形式-customconfig\",\"link\":\"#_3-2-自定义config形式-customconfig\",\"children\":[]}]},{\"level\":2,\"title\":\"4. 错误处理\",\"slug\":\"_4-错误处理\",\"link\":\"#_4-错误处理\",\"children\":[]},{\"level\":2,\"title\":\"5. 拦截器\",\"slug\":\"_5-拦截器\",\"link\":\"#_5-拦截器\",\"children\":[]},{\"level\":2,\"title\":\"6. 开启一机一密\",\"slug\":\"_6-开启一机一密\",\"link\":\"#_6-开启一机一密\",\"children\":[]},{\"level\":2,\"title\":\"7. 初始化完成的回调\",\"slug\":\"_7-初始化完成的回调\",\"link\":\"#_7-初始化完成的回调\",\"children\":[]},{\"level\":2,\"title\":\"8. 方法\",\"slug\":\"_8-方法\",\"link\":\"#_8-方法\",\"children\":[{\"level\":3,\"title\":\"8.1 getServiceList 获取服务列表\",\"slug\":\"_8-1-getservicelist-获取服务列表\",\"link\":\"#_8-1-getservicelist-获取服务列表\",\"children\":[]},{\"level\":3,\"title\":\"8.2 addService 新增服务\",\"slug\":\"_8-2-addservice-新增服务\",\"link\":\"#_8-2-addservice-新增服务\",\"children\":[]},{\"level\":3,\"title\":\"8.3 deleteService 删除服务\",\"slug\":\"_8-3-deleteservice-删除服务\",\"link\":\"#_8-3-deleteservice-删除服务\",\"children\":[]},{\"level\":3,\"title\":\"8.4 setServiceTimeout 设置超时时间\",\"slug\":\"_8-4-setservicetimeout-设置超时时间\",\"link\":\"#_8-4-setservicetimeout-设置超时时间\",\"children\":[]},{\"level\":3,\"title\":\"8.5 getServiceTimeout 获取超时时间\",\"slug\":\"_8-5-getservicetimeout-获取超时时间\",\"link\":\"#_8-5-getservicetimeout-获取超时时间\",\"children\":[]},{\"level\":3,\"title\":\"8.6 getInstance 获取服务管理器实例\",\"slug\":\"_8-6-getinstance-获取服务管理器实例\",\"link\":\"#_8-6-getinstance-获取服务管理器实例\",\"children\":[]}]},{\"level\":2,\"title\":\"9. 参数结构\",\"slug\":\"_9-参数结构\",\"link\":\"#_9-参数结构\",\"children\":[]},{\"level\":2,\"title\":\"10. 常见问题\",\"slug\":\"_10-常见问题\",\"link\":\"#_10-常见问题\",\"children\":[]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-manager-service.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

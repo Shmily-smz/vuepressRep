@@ -5,8 +5,8 @@ heroImage: /images/1.png
 heroText: 赞同前端文档详设库
 tagline: 包含赞同目前所有的文档
 actions:
-  - text:  快速上手 →
-    link: /allmd/
+  - text:  快速进入 →
+    link: /AB产品知识库/
     type: primary
 
 features:

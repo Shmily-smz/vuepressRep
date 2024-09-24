@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-plugin-adaas.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-plugin-adaas.html\",\"title\":\"ab-manager-adaas\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"1. 引入并初始化\",\"slug\":\"_1-引入并初始化\",\"link\":\"#_1-引入并初始化\",\"children\":[]},{\"level\":2,\"title\":\"2. 方法\",\"slug\":\"_2-方法\",\"link\":\"#_2-方法\",\"children\":[{\"level\":3,\"title\":\"readIdr\",\"slug\":\"readidr\",\"link\":\"#readidr\",\"children\":[]},{\"level\":3,\"title\":\"readMsf\",\"slug\":\"readmsf\",\"link\":\"#readmsf\",\"children\":[]},{\"level\":3,\"title\":\"readFic\",\"slug\":\"readfic\",\"link\":\"#readfic\",\"children\":[]},{\"level\":3,\"title\":\"evaluator\",\"slug\":\"evaluator\",\"link\":\"#evaluator\",\"children\":[]},{\"level\":3,\"title\":\"readPin\",\"slug\":\"readpin\",\"link\":\"#readpin\",\"children\":[]},{\"level\":3,\"title\":\"print\",\"slug\":\"print\",\"link\":\"#print\",\"children\":[]},{\"level\":3,\"title\":\"printImg\",\"slug\":\"printimg\",\"link\":\"#printimg\",\"children\":[]},{\"level\":3,\"title\":\"frontCamera\",\"slug\":\"frontcamera\",\"link\":\"#frontcamera\",\"children\":[]},{\"level\":3,\"title\":\"backCamera\",\"slug\":\"backcamera\",\"link\":\"#backcamera\",\"children\":[]},{\"level\":3,\"title\":\"sign\",\"slug\":\"sign\",\"link\":\"#sign\",\"children\":[]},{\"level\":3,\"title\":\"uploadFile\",\"slug\":\"uploadfile\",\"link\":\"#uploadfile\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-plugin-adaas.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

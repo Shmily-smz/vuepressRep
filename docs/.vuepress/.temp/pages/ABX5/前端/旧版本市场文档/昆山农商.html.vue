@@ -1,0 +1,1252 @@
+<template><div><h1 id="昆山农商-api-文档" tabindex="-1"><a class="header-anchor" href="#昆山农商-api-文档"><span>昆山农商 API 文档</span></a></h1>
+<table>
+  <caption>平台 API</caption>
+  <thead> <!-- 表头部分 -->
+<tr><th>API 分类</th><th>API 名称</th><th>API 说明</th></tr>
+  </thead>
+  <tbody> <tr><td rowspan="5">请求</td><td> _commit_ </td><td><a href="#http请求">发送 http 请求</a></td></tr>
+  <tr><td> _aftCommit </td><td><a href="#aft解析请求">发送 aft 解析请求</a></td></tr>
+  <tr><td> _resetCommit </td><td><a href="#重置请求">重置请求</a></td></tr>
+  <tr><td> _jumpCommit </td><td><a href="#回跳请求">回跳请求</a></td></tr>
+  <tr><td> _nextCommit </td><td><a href="#下一步请求">下一步请求</a></td></tr>
+  <tr><td rowspan="3">交易控制</td><td> _abortCurrentTradeAsync </td><td><a href="#中止当前交易">中止当前交易</a></td></tr>
+  <tr><td> _abortCurrentCTradeAsync </td><td><a href="#c端画面中止当前交易">C 端画面中止当前交易</a></td></tr>
+  <tr><td> _closeCurrentCPageAsync </td><td><a href="#c端关闭当前交易画面">C 端关闭当前交易画面</a></td></tr>
+  <tr><td rowspan="2">数据管理</td><td> _getModel </td><td><a href="#获取数据模型">获取数据模型</a></td></tr>
+  <tr><td> _setModel </td><td><a href="#设置数据模型">设置数据模型</a></td></tr>
+  <tr><td rowspan="9">钩子函数</td><td> onCreated </td><td><a href="#oncreated-画面初始化时逻辑">画面初始化时逻辑</a></td></tr>
+  <tr><td> onMounted </td><td><a href="#onmounted-画面渲染完成时逻辑">画面渲染完成时逻辑</a></td></tr>
+  <tr><td> onSocketMessage </td><td><a href="#onsocketmessage-接收服务端返回的-socket-内容">接收服务端返回的 socket 内容</a></td></tr>
+  <tr><td> beforeCloseTrade </td><td><a href="#beforeclosetrade-交易完成前逻辑">交易完成前逻辑</a></td></tr>
+  <tr><td> afterClosedTrade </td><td><a href="#afterclosedtrade-交易完成后逻辑">交易完成后逻辑</a></td></tr>
+  <tr><td> beforeAbortTrade </td><td><a href="#beforeaborttrade-交易中止前逻辑">交易中止前逻辑</a></td></tr>
+  <tr><td> afterAbortedTrade </td><td><a href="#afterabortedtrade-交易中止后逻辑">交易中止后逻辑</a></td></tr>
+  <tr><td> onDestroy </td><td><a href="#ondestroy-画面销毁时的逻辑">画面销毁时的逻辑</a></td></tr>
+  <tr><td> onCapturedError </td><td><a href="#oncapturederror-服务端执行报错时处理逻辑">服务端执行报错时处理逻辑</a></td></tr></tbody>
+</table>
+<table>
+  <caption>SDK API</caption>
+   <thead> <tr><th>API 分类</th><th>API 名称</th><th>API 说明</th></tr> </thead>
+ <tbody><tr><td rowspan="3">abx-manager-eventbus</td><td> $emit </td><td><a href="#emit-触发事件">触发事件</a></td></tr>
+  <tr><td> $on </td><td><a href="#on-监听事件">监听事件</a></td></tr>
+  <tr><td> $off </td><td><a href="#off-销毁事件">销毁事件</a></td></tr>
+  <tr><td rowspan="1">abx-ab4Entry</td><td> ab4Entry </td><td><a href="#ab4entry-调用-ab4-技术组件入口">调用 ab4 技术组件入口</a></td></tr>
+  <tr><td rowspan="5">abx-plugin-file</td><td> getInstallPathAsync </td><td><a href="#getinstallpathasync-获取客户端根路径">获取客户端根路径</a></td></tr>
+  <tr><td> getFileMD5Async </td><td><a href="#getfilemd5async-获取文件-md5">获取文件 MD5</a></td></tr>
+  <tr><td> uploadABXFileAsync </td><td><a href="#uploadabxfileasync-上传文件到-abx-服务器">上传文件到 ABX 服务器</a></td></tr>
+  <tr><td> downloadABXFileAsync </td><td><a href="#downloadabxfileasync-下载-abx-服务端文件到本地">下载 ABX 服务端文件到本地</a></td></tr>
+  <tr><td> downloadABXAARMFileAsync </td><td><a href="#downloadabxaarmfileasync-下载-abx-aarm服务内文件到本地">下载 ABX aarm服务内文件到本地</a></td></tr>
+  <tr><td rowspan="21">abx-plugin-video</td><td> initVideoBankAsync </td><td><a href="#initvideobankasync-初始化视频-sdk">初始化视频 SDK</a></td></tr>
+  <tr><td> loginAsync </td><td><a href="#loginasync-登陆系统">登陆系统</a></td></tr>
+  <tr><td> joinRoomAsync </td><td><a href="#joinroomasync-进入房间">进入房间</a></td></tr>
+  <tr><td> sendCameraViedoAsync </td><td><a href="#sendcameraviedoasync-发送摄像头媒体流">发送摄像头媒体流</a></td></tr>
+  <tr><td> sendDesktopVideoAsync </td><td><a href="#senddesktopvideoasync-发送桌面流">发送桌面流</a></td></tr>
+  <tr><td> releaseVideoAsync </td><td><a href="#releasevideoasync-停止发送视频流">停止发送视频流</a></td></tr>
+  <tr><td> receiveVideoAsync </td><td><a href="#receivevideoasync-接收媒体流">接收媒体流</a></td></tr>
+  <tr><td> reloadVideoAsync </td><td><a href="#reloadvideoasync-重载媒体流">重载媒体流</a></td></tr>
+  <tr><td> streamControlAsync </td><td><a href="#streamcontrolasync-流媒体挂起恢复">流媒体挂起恢复</a></td></tr>
+  <tr><td> starRecordStreamAsync </td><td><a href="#starrecordstreamasync-开始录制">开始录制</a></td></tr>
+  <tr><td> stopRecordStreamAsync </td><td><a href="#stoprecordstreamasync-停止录制">停止录制</a></td></tr>
+  <tr><td> leaveRoomAsync </td><td><a href="#leaveroomasync-离开房间">离开房间</a></td></tr>
+  <tr><td> screenCaptureWithInfoAsync </td><td><a href="#screencapturewithinfoasync-拍摄远程用户当前帧图像">拍摄远程用户当前帧图像</a></td></tr>
+  <tr><td> sendCustomizeMessageAsync </td><td><a href="#sendcustomizemessageasync-发送自定义消息">发送自定义消息</a></td></tr>
+  <tr><td> logoutAsync </td><td><a href="#logoutasync-退出系统">退出系统</a></td></tr>
+  <tr><td> closeConnectAsync </td><td><a href="#closeconnectasync-关闭连接">关闭连接</a></td></tr>
+  <tr><td> videoLayerConvertAsync </td><td><a href="#videolayerconvertasync-视频显示切换">切换</a></td></tr>
+  <tr><td> backMenuAsync </td><td><a href="#backmenuasync-返回菜单页">返回菜单页</a></td></tr>
+  <tr><td> faceCircleAsync </td><td><a href="#facecircleasync-打开脸圈">打开脸圈</a></td></tr>
+  <tr><td> getPhotoByCameraAsync </td><td><a href="#getphotobycameraasync-拍照">拍照</a></td></tr>
+  <tr><td> viewConvertAsync </td><td><a href="#viewconvertasync-切换">切换</a></td></tr></tbody>
+</table>
+<h2 id="平台-api" tabindex="-1"><a class="header-anchor" href="#平台-api"><span>平台 API</span></a></h2>
+<ul>
+<li>
+<h3 id="请求相关" tabindex="-1"><a class="header-anchor" href="#请求相关"><span>请求相关</span></a></h3>
+</li>
+</ul>
+<h4 id="commit-发送-http-请求-http请求" tabindex="-1"><a class="header-anchor" href="#commit-发送-http-请求-http请求"><span><code v-pre>_commit_</code>: 发送 http 请求 {#http请求}</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>请求路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td>请求类型</td>
+<td>-</td>
+</tr>
+<tr>
+<td>header</td>
+<td>请求头数据</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data</td>
+<td>请求体数据</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tradeModuleID</td>
+<td>当前交易 ID</td>
+<td>-</td>
+</tr>
+<tr>
+<td>openMask</td>
+<td>是否打开请求遮罩</td>
+<td>-</td>
+</tr>
+<tr>
+<td>isSplice</td>
+<td>是否为拼接路径</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="aftcommit-发送-aft-解析请求-aft解析请求" tabindex="-1"><a class="header-anchor" href="#aftcommit-发送-aft-解析请求-aft解析请求"><span><code v-pre>_aftCommit</code>: 发送 aft 解析请求 {#aft解析请求}</span></a></h4>
+<p>参数：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>请求路径,对应 aarm 内 aft 处理接口</td>
+<td>-</td>
+</tr>
+<tr>
+<td>isAbsolutePath</td>
+<td>是否为绝对路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data</td>
+<td>请求体数据，包含 aftPath(aft 文件路径)、targetPath(解析后文件存放路径)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="resetcommit-重置请求-重置请求" tabindex="-1"><a class="header-anchor" href="#resetcommit-重置请求-重置请求"><span><code v-pre>_resetCommit</code>: 重置请求 {#重置请求}</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>taskKey</td>
+<td>要重置步骤的 taskKey</td>
+<td>-</td>
+</tr>
+<tr>
+<td>taskId</td>
+<td>要重置步骤的 taskId</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="jumpcommit-回跳请求-回跳请求" tabindex="-1"><a class="header-anchor" href="#jumpcommit-回跳请求-回跳请求"><span><code v-pre>_jumpCommit</code>: 回跳请求 {#回跳请求}</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>taskKey</td>
+<td>要回跳步骤的 taskKey</td>
+<td>-</td>
+</tr>
+<tr>
+<td>taskId</td>
+<td>要回跳步骤的 taskId</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="nextcommit-下一步请求-下一步请求" tabindex="-1"><a class="header-anchor" href="#nextcommit-下一步请求-下一步请求"><span><code v-pre>_nextCommit</code>: 下一步请求 {#下一步请求}</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tradeModuleID</td>
+<td>当前的交易 ID (非必需)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>header</td>
+<td>需要设置的请求头信息(非必需)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data</td>
+<td>需要设置的请求体信息(非必需)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<h3 id="交易控制" tabindex="-1"><a class="header-anchor" href="#交易控制"><span>交易控制</span></a></h3>
+</li>
+</ul>
+<h4 id="abortcurrenttradeasync-中止当前交易-中止当前交易" tabindex="-1"><a class="header-anchor" href="#abortcurrenttradeasync-中止当前交易-中止当前交易"><span><code v-pre>_abortCurrentTradeAsync</code>: 中止当前交易 {#中止当前交易}</span></a></h4>
+<p>无参数</p>
+<h4 id="abortcurrentctradeasync-c-端画面中止当前交易-c端画面中止当前交易" tabindex="-1"><a class="header-anchor" href="#abortcurrentctradeasync-c-端画面中止当前交易-c端画面中止当前交易"><span><code v-pre>_abortCurrentCTradeAsync</code>：C 端画面中止当前交易 {#C端画面中止当前交易}</span></a></h4>
+<p>无参数</p>
+<h4 id="closecurrentcpageasync-c-端关闭当前交易画面-c端关闭当前交易画面" tabindex="-1"><a class="header-anchor" href="#closecurrentcpageasync-c-端关闭当前交易画面-c端关闭当前交易画面"><span><code v-pre>_closeCurrentCPageAsync</code>：C 端关闭当前交易画面 {#C端关闭当前交易画面}</span></a></h4>
+<p>无参数</p>
+<ul>
+<li>
+<h3 id="数据相关" tabindex="-1"><a class="header-anchor" href="#数据相关"><span>数据相关</span></a></h3>
+</li>
+</ul>
+<h4 id="getmodel-获取数据模型-获取数据模型" tabindex="-1"><a class="header-anchor" href="#getmodel-获取数据模型-获取数据模型"><span><code v-pre>_getModel</code>: 获取数据模型 {#获取数据模型}</span></a></h4>
+<p>参数：key(非必需)数据模型对应属性名</p>
+<p>说明：无传参时，默认获取当前交易所有的交易数据；传参时，获取数据模型内对应的属性值。</p>
+<h4 id="setmodel-设置数据模型-设置数据模型" tabindex="-1"><a class="header-anchor" href="#setmodel-设置数据模型-设置数据模型"><span><code v-pre>_setModel</code>: 设置数据模型 {#设置数据模型}</span></a></h4>
+<p>参数：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>数据模型属性名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>value</td>
+<td>数据模型属性值</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td>数据模型合并方式(shallowCopy：浅拷贝；cover：覆盖；deepCopy：深拷贝)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<h3 id="钩子函数相关" tabindex="-1"><a class="header-anchor" href="#钩子函数相关"><span>钩子函数相关</span></a></h3>
+<blockquote>
+<p>钩子函数需在合适的时机进行调用</p>
+</blockquote>
+</li>
+</ul>
+<div class="language-vue line-numbers-mode" data-highlighter="prismjs" data-ext="vue" data-title="vue"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></span>
+<span class="line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token comment">// 重置时间</span></span>
+<span class="line">    <span class="token function">reTime</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token comment">// 获取通讯超时时间</span></span>
+<span class="line">      <span class="token keyword">let</span> initTime<span class="token punctuation">;</span></span>
+<span class="line">      <span class="token keyword">try</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_timeout<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">          initTime <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_timeout<span class="token punctuation">;</span></span>
+<span class="line">        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">          initTime <span class="token operator">=</span> value<span class="token punctuation">;</span></span>
+<span class="line">        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">          initTime <span class="token operator">=</span> window<span class="token punctuation">.</span>abx<span class="token punctuation">.</span>utils<span class="token punctuation">.</span><span class="token function">getCommTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token punctuation">}</span></span>
+<span class="line">      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[获取通讯超时时间失败]: "</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span></span>
+<span class="line">      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span></span>
+<span class="line">        <span class="token string">">>>>> 时间"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token string">"_timeout: "</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token keyword">this</span><span class="token punctuation">.</span>_timeout<span class="token punctuation">,</span></span>
+<span class="line">        <span class="token string">"initTime: "</span><span class="token punctuation">,</span></span>
+<span class="line">        initTime</span>
+<span class="line">      <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token punctuation">(</span>initTime <span class="token operator">&amp;&amp;</span> initTime <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token punctuation">.</span>init<span class="token punctuation">;</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">">>> 超时时间设置 &lt;&lt;&lt;"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">">>> 关闭 &lt;&lt;&lt;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>$root<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token comment">// 计时结束</span></span>
+<span class="line">    <span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">">>> 超时 run end &lt;&lt;&lt;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token comment">// 超时状态</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>overtime <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_timeoutCallback<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">">>>>>> timeoutCallback"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_timeoutCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token comment">// 暂停</span></span>
+<span class="line">    <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">">>> 暂停 &lt;&lt;&lt;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>start <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">&amp;&amp;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token comment">// 重新计时</span></span>
+<span class="line">    <span class="token function">restart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token comment">// 超时切换</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>overtime <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token comment">// 暂停取消</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>start <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token comment">// 置为初始时间</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">reTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>classify <span class="token operator">===</span> <span class="token string">"message"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">this</span><span class="token punctuation">.</span>countdownStatus <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span></span>
+<span class="line">      <span class="token comment">// 开始计时</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">reCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token comment">// 倒计时控件</span></span>
+<span class="line">    <span class="token function">reCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token comment">// 倒计时结束: 超时</span></span>
+<span class="line">        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token punctuation">.</span>value <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">          <span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">&amp;&amp;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">          <span class="token keyword">return</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">        <span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token punctuation">.</span>value<span class="token operator">--</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token comment">// console.log("超时",this.time.value);</span></span>
+<span class="line">        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>start<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">reCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">          <span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">&amp;&amp;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token punctuation">}</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token comment">// 变化内容</span></span>
+<span class="line">    <span class="token function">changeContent</span><span class="token punctuation">(</span><span class="token parameter">status</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token keyword">this</span><span class="token punctuation">.</span>content <span class="token operator">=</span></span>
+<span class="line">        status <span class="token operator">===</span> <span class="token string">"overtime"</span></span>
+<span class="line">          <span class="token operator">?</span> <span class="token keyword">this</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>classify<span class="token punctuation">]</span><span class="token punctuation">.</span>overtime</span>
+<span class="line">          <span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>classify<span class="token punctuation">]</span><span class="token punctuation">.</span>current<span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token function">destroyed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">&amp;&amp;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="oncreated-画面初始化时逻辑" tabindex="-1"><a class="header-anchor" href="#oncreated-画面初始化时逻辑"><span><code v-pre>onCreated</code>: 画面初始化时逻辑</span></a></h4>
+<p>参数：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td>服务端推送打开画面的 socket 内容</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="onmounted-画面渲染完成时逻辑" tabindex="-1"><a class="header-anchor" href="#onmounted-画面渲染完成时逻辑"><span><code v-pre>onMounted</code>: 画面渲染完成时逻辑</span></a></h4>
+<p>无参数</p>
+<h4 id="ondestroy-画面销毁时逻辑" tabindex="-1"><a class="header-anchor" href="#ondestroy-画面销毁时逻辑"><span><code v-pre>onDestroy</code>: 画面销毁时逻辑</span></a></h4>
+<p>无参数</p>
+<h4 id="onsocketmessage-接收服务端返回的-socket-内容" tabindex="-1"><a class="header-anchor" href="#onsocketmessage-接收服务端返回的-socket-内容"><span><code v-pre>onSocketMessage</code>: 接收服务端返回的 socket 内容</span></a></h4>
+<blockquote>
+<p>执行优先级: page &gt; frame(基础布局) &gt; 打开交易时注册的钩子函数 &gt; 平台钩子函数</p>
+</blockquote>
+<p>参数：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td>服务端推送的 socket 消息内容</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="beforeclosetrade-交易完成前逻辑" tabindex="-1"><a class="header-anchor" href="#beforeclosetrade-交易完成前逻辑"><span><code v-pre>beforeCloseTrade</code>: 交易完成前逻辑</span></a></h4>
+<p>无参数</p>
+<h4 id="afterclosedtrade-交易完成后逻辑" tabindex="-1"><a class="header-anchor" href="#afterclosedtrade-交易完成后逻辑"><span><code v-pre>afterClosedTrade</code>: 交易完成后逻辑</span></a></h4>
+<p>无参数</p>
+<h4 id="beforeaborttrade-交易中止前逻辑" tabindex="-1"><a class="header-anchor" href="#beforeaborttrade-交易中止前逻辑"><span><code v-pre>beforeAbortTrade</code>: 交易中止前逻辑</span></a></h4>
+<p>无参数</p>
+<h4 id="afterabortedtrade-交易中止后逻辑" tabindex="-1"><a class="header-anchor" href="#afterabortedtrade-交易中止后逻辑"><span><code v-pre>afterAbortedTrade</code>: 交易中止后逻辑</span></a></h4>
+<p>无参数</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p><code v-pre>beforeCloseTrade</code>、<code v-pre>afterClosedTrade</code>、<code v-pre>beforeAbortTrade</code>、<code v-pre>afterAbortedTrade</code> 的执行顺序:</p>
+<p>index.js -&gt; frame -&gt; page -&gt; 打开交易时注册的钩子函数 -&gt; 平台钩子函数</p>
+</div>
+<h4 id="oncapturederror-服务端执行报错时处理逻辑" tabindex="-1"><a class="header-anchor" href="#oncapturederror-服务端执行报错时处理逻辑"><span><code v-pre>onCapturedError</code>: 服务端执行报错时处理逻辑</span></a></h4>
+<blockquote>
+<p>执行顺序: page -&gt; frame -&gt; index.js / 打开交易时注册的钩子函数 -&gt; 平台钩子函数</p>
+</blockquote>
+<p>参数：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>err</td>
+<td>错误信息</td>
+<td>-</td>
+</tr>
+<tr>
+<td>obj</td>
+<td>错误时对应的交易相关信息</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sdk-api" tabindex="-1"><a class="header-anchor" href="#sdk-api"><span>SDK API</span></a></h2>
+<hr>
+<ul>
+<li>
+<h3 id="abx-manager-eventbus" tabindex="-1"><a class="header-anchor" href="#abx-manager-eventbus"><span>abx-manager-eventbus</span></a></h3>
+<blockquote>
+<p>事件总线 SDK</p>
+</blockquote>
+</li>
+</ul>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> EventBus <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@abx/abx-manager-eventbus"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">EventBus<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">EventBus<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token string">"args"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">EventBus<span class="token punctuation">.</span><span class="token function">$off</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="emit-触发事件" tabindex="-1"><a class="header-anchor" href="#emit-触发事件"><span>$emit: 触发事件</span></a></h4>
+<p>参数:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>事件名称</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data</td>
+<td>事件传参</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="on-监听事件" tabindex="-1"><a class="header-anchor" href="#on-监听事件"><span>$on: 监听事件</span></a></h4>
+<p>参数:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>事件名称</td>
+<td>-</td>
+</tr>
+<tr>
+<td>fn</td>
+<td>事件对应的回调函数</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="off-销毁事件" tabindex="-1"><a class="header-anchor" href="#off-销毁事件"><span>$off: 销毁事件</span></a></h4>
+<p>参数:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>事件名称</td>
+<td>-</td>
+</tr>
+<tr>
+<td>fn</td>
+<td>事件所注册的回调函数</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li>
+<h3 id="abx-ab4entry" tabindex="-1"><a class="header-anchor" href="#abx-ab4entry"><span>abx-ab4Entry</span></a></h3>
+<blockquote>
+<p>调用 ab4 技术组件入口 API</p>
+</blockquote>
+</li>
+</ul>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> ab4Entry <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@abx/abx-ab4Entry"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token function">ab4Entry</span><span class="token punctuation">(</span><span class="token string">"ab4-name"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 对应的组件参数</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="ab4entry-调用-ab4-技术组件入口" tabindex="-1"><a class="header-anchor" href="#ab4entry-调用-ab4-技术组件入口"><span>ab4Entry: 调用 ab4 技术组件入口</span></a></h4>
+<p>参数:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>组件名称</td>
+<td>-</td>
+</tr>
+<tr>
+<td>options</td>
+<td>调用组件所需参数</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li>
+<h3 id="abx-plugin-file" tabindex="-1"><a class="header-anchor" href="#abx-plugin-file"><span>abx-plugin-file</span></a></h3>
+<blockquote>
+<p>基于 ab4 客户端的文件相关操作</p>
+</blockquote>
+</li>
+</ul>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> FileManager <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@abx/abx-plugin-file"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">new</span> <span class="token class-name">FileManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInstallPathAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">new</span> <span class="token class-name">FileManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFileMD5Async</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">  url<span class="token punctuation">,</span> <span class="token comment">// 文件路径</span></span>
+<span class="line">  type<span class="token punctuation">,</span> <span class="token comment">// MD5 类型</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">new</span> <span class="token class-name">FileManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">uploadABXFileAsync</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">  serverPath<span class="token punctuation">,</span> <span class="token comment">// 服务地址</span></span>
+<span class="line">  remotePath<span class="token punctuation">,</span> <span class="token comment">// 远端文件地址</span></span>
+<span class="line">  localPath<span class="token punctuation">,</span> <span class="token comment">// 本地文件地址</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">new</span> <span class="token class-name">FileManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">downloadABXFileAsync</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">  serverPath<span class="token punctuation">,</span> <span class="token comment">// 服务地址</span></span>
+<span class="line">  remotePath<span class="token punctuation">,</span> <span class="token comment">// 远端文件地址</span></span>
+<span class="line">  localPath<span class="token punctuation">,</span> <span class="token comment">// 本地文件地址</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">new</span> <span class="token class-name">FileManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">downloadABXAARMFileAsync</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">  serverPath<span class="token punctuation">,</span> <span class="token comment">// 服务地址</span></span>
+<span class="line">  remotePath<span class="token punctuation">,</span> <span class="token comment">// 远端文件地址</span></span>
+<span class="line">  localPath<span class="token punctuation">,</span> <span class="token comment">// 本地文件地址</span></span>
+<span class="line">  isAbsolutePath<span class="token punctuation">,</span> <span class="token comment">// 是否绝对路径</span></span>
+<span class="line">  isDelete<span class="token punctuation">,</span> <span class="token comment">// 是否删除文件</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="getinstallpathasync-获取客户端根路径" tabindex="-1"><a class="header-anchor" href="#getinstallpathasync-获取客户端根路径"><span>getInstallPathAsync: 获取客户端根路径</span></a></h4>
+<p>无参数</p>
+<h4 id="getfilemd5async-获取文件-md5" tabindex="-1"><a class="header-anchor" href="#getfilemd5async-获取文件-md5"><span>getFileMD5Async: 获取文件 MD5</span></a></h4>
+<p>参数: <code v-pre>Object</code></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>客户端文件地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td>转换类型</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="uploadabxfileasync-上传文件到-abx-服务器" tabindex="-1"><a class="header-anchor" href="#uploadabxfileasync-上传文件到-abx-服务器"><span>uploadABXFileAsync: 上传文件到 ABX 服务器</span></a></h4>
+<p>参数: <code v-pre>Object</code></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>serverPath</td>
+<td>服务地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>remotePath</td>
+<td>远端文件地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>localPath</td>
+<td>本地文件地址</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="downloadabxfileasync-下载-abx-服务端文件到本地" tabindex="-1"><a class="header-anchor" href="#downloadabxfileasync-下载-abx-服务端文件到本地"><span>downloadABXFileAsync: 下载 ABX 服务端文件到本地</span></a></h4>
+<p>参数: <code v-pre>Object</code></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>serverPath</td>
+<td>服务地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>remotePath</td>
+<td>远端文件地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>localPath</td>
+<td>本地文件地址</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="downloadabxaarmfileasync-下载-abx-aarm-服务内文件到本地" tabindex="-1"><a class="header-anchor" href="#downloadabxaarmfileasync-下载-abx-aarm-服务内文件到本地"><span>downloadABXAARMFileAsync: 下载 ABX aarm 服务内文件到本地</span></a></h4>
+<p>参数: <code v-pre>Object</code></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>serverPath</td>
+<td>服务地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>remotePath</td>
+<td>远端文件地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>localPath</td>
+<td>本地文件地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>isAbsolutePath</td>
+<td>是否绝对路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td>isDelete</td>
+<td>是否删除文件</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li>
+<h3 id="abx-plugin-video" tabindex="-1"><a class="header-anchor" href="#abx-plugin-video"><span>abx-plugin-video</span></a></h3>
+<blockquote>
+<p>移动端视频 SDK</p>
+</blockquote>
+</li>
+</ul>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> VideoPlugin <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@abx/abx-plugin-video"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">new</span> <span class="token class-name">VideoPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">initVideoBankAsync</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">  url<span class="token punctuation">,</span> <span class="token comment">// 服务器 URL</span></span>
+<span class="line">  heartBeat<span class="token punctuation">,</span> <span class="token comment">// 心跳链接间隔(ms)</span></span>
+<span class="line">  reconnectTime<span class="token punctuation">,</span> <span class="token comment">// 重新连接发送间隔(ms)</span></span>
+<span class="line">  reconnectTimes<span class="token punctuation">,</span> <span class="token comment">// 重新连接次数</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="initvideobankasync-初始化视频-sdk" tabindex="-1"><a class="header-anchor" href="#initvideobankasync-初始化视频-sdk"><span><code v-pre>initVideoBankAsync</code>: 初始化视频 SDK</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>服务器 URL</td>
+<td>-</td>
+</tr>
+<tr>
+<td>heartBeat</td>
+<td>心跳链接间隔(ms)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>reconnectTime</td>
+<td>重新连接发送间隔(ms)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>reconnectTimes</td>
+<td>重新连接次数</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="loginasync-登陆系统" tabindex="-1"><a class="header-anchor" href="#loginasync-登陆系统"><span><code v-pre>loginAsync</code>: 登陆系统</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>用户名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>userid</td>
+<td>用户 id</td>
+<td>-</td>
+</tr>
+<tr>
+<td>role</td>
+<td>用户角色</td>
+<td>-</td>
+</tr>
+<tr>
+<td>businessData</td>
+<td>业务数据</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="joinroomasync-进入房间" tabindex="-1"><a class="header-anchor" href="#joinroomasync-进入房间"><span><code v-pre>joinRoomAsync</code>: 进入房间</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>roomid</td>
+<td>房间 id</td>
+<td>-</td>
+</tr>
+<tr>
+<td>businessData</td>
+<td>业务数据</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sendcameraviedoasync-发送摄像头媒体流" tabindex="-1"><a class="header-anchor" href="#sendcameraviedoasync-发送摄像头媒体流"><span><code v-pre>sendCameraViedoAsync</code>: 发送摄像头媒体流</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>streamAlias</td>
+<td>流别名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>recordStreamFlag</td>
+<td>录制标志</td>
+<td>-</td>
+</tr>
+<tr>
+<td>broadcastSign</td>
+<td>广播标志</td>
+<td>-</td>
+</tr>
+<tr>
+<td>videoBitrate</td>
+<td>码率</td>
+<td>-</td>
+</tr>
+<tr>
+<td>preferCodec</td>
+<td>编码</td>
+<td>-</td>
+</tr>
+<tr>
+<td>iceServersConfig</td>
+<td>ice 配置</td>
+<td>-</td>
+</tr>
+<tr>
+<td>constraints</td>
+<td>视频约束</td>
+<td>-</td>
+</tr>
+<tr>
+<td>sendSource</td>
+<td>发送视频类型(桌面或摄像头)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="senddesktopvideoasync-发送桌面流" tabindex="-1"><a class="header-anchor" href="#senddesktopvideoasync-发送桌面流"><span><code v-pre>sendDesktopVideoAsync</code>: 发送桌面流</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>streamAlias</td>
+<td>流别名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>recordStreamFlag</td>
+<td>录制标志</td>
+<td>-</td>
+</tr>
+<tr>
+<td>broadcastSign</td>
+<td>广播标志</td>
+<td>-</td>
+</tr>
+<tr>
+<td>videoBitrate</td>
+<td>码率</td>
+<td>-</td>
+</tr>
+<tr>
+<td>preferCodec</td>
+<td>编码</td>
+<td>-</td>
+</tr>
+<tr>
+<td>iceServersConfig</td>
+<td>ice 配置</td>
+<td>-</td>
+</tr>
+<tr>
+<td>constraints</td>
+<td>视频约束</td>
+<td>-</td>
+</tr>
+<tr>
+<td>videoView</td>
+<td>视频父 view</td>
+<td>-</td>
+</tr>
+<tr>
+<td>sendSource</td>
+<td>发送视频类型(桌面或摄像头)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="releasevideoasync-停止发送视频流" tabindex="-1"><a class="header-anchor" href="#releasevideoasync-停止发送视频流"><span><code v-pre>releaseVideoAsync</code>: 停止发送视频流</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userid</td>
+<td>用户名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>roomid</td>
+<td>房间名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>streamAlias</td>
+<td>流别名</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="receivevideoasync-接收媒体流" tabindex="-1"><a class="header-anchor" href="#receivevideoasync-接收媒体流"><span><code v-pre>receiveVideoAsync</code>: 接收媒体流</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>senderUserid</td>
+<td>发送者 id</td>
+<td>-</td>
+</tr>
+<tr>
+<td>streamAlias</td>
+<td>流别名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>videoBitrate</td>
+<td>码率</td>
+<td>-</td>
+</tr>
+<tr>
+<td>preferCodec</td>
+<td>编码</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="reloadvideoasync-重载媒体流" tabindex="-1"><a class="header-anchor" href="#reloadvideoasync-重载媒体流"><span><code v-pre>reloadVideoAsync</code>: 重载媒体流</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>senderUserid</td>
+<td>发送者 id</td>
+<td>-</td>
+</tr>
+<tr>
+<td>streamAlias</td>
+<td>流别名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>videoBitrate</td>
+<td>码率</td>
+<td>-</td>
+</tr>
+<tr>
+<td>preferCodec</td>
+<td>编码</td>
+<td>-</td>
+</tr>
+<tr>
+<td>iceServersConfig</td>
+<td>ice 配置</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="streamcontrolasync-流媒体挂起恢复" tabindex="-1"><a class="header-anchor" href="#streamcontrolasync-流媒体挂起恢复"><span><code v-pre>streamControlAsync</code>: 流媒体挂起恢复</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>streamAlias</td>
+<td>流别名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>controlType</td>
+<td>控制类型</td>
+<td>-</td>
+</tr>
+<tr>
+<td>synRecordProcess</td>
+<td>是否同步到录像</td>
+<td>-</td>
+</tr>
+<tr>
+<td>businessData</td>
+<td>业务数据</td>
+<td>-</td>
+</tr>
+<tr>
+<td>actionType</td>
+<td>操作类型</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="starrecordstreamasync-开始录制" tabindex="-1"><a class="header-anchor" href="#starrecordstreamasync-开始录制"><span><code v-pre>starRecordStreamAsync</code>: 开始录制</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>streamAlias</td>
+<td>流别名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>recordFilePath</td>
+<td>录制路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td>recordFileName</td>
+<td>录制名称</td>
+<td>-</td>
+</tr>
+<tr>
+<td>businessData</td>
+<td>业务数据</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="stoprecordstreamasync-停止录制" tabindex="-1"><a class="header-anchor" href="#stoprecordstreamasync-停止录制"><span><code v-pre>stopRecordStreamAsync</code>: 停止录制</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>streamAliasArray</td>
+<td>流别名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>businessData</td>
+<td>业务数据</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="leaveroomasync-离开房间" tabindex="-1"><a class="header-anchor" href="#leaveroomasync-离开房间"><span><code v-pre>leaveRoomAsync</code>: 离开房间</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>businessData</td>
+<td>业务数据</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="screencapturewithinfoasync-拍摄远程用户当前帧图像" tabindex="-1"><a class="header-anchor" href="#screencapturewithinfoasync-拍摄远程用户当前帧图像"><span><code v-pre>screenCaptureWithInfoAsync</code>: 拍摄远程用户当前帧图像</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userid</td>
+<td>远程用户 id</td>
+<td>-</td>
+</tr>
+<tr>
+<td>streamAlias</td>
+<td>远程用户流别名</td>
+<td>-</td>
+</tr>
+<tr>
+<td>timeStamp</td>
+<td>当前时间戳</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sendcustomizemessageasync-发送自定义消息" tabindex="-1"><a class="header-anchor" href="#sendcustomizemessageasync-发送自定义消息"><span><code v-pre>sendCustomizeMessageAsync</code>: 发送自定义消息</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>messageType</td>
+<td>消息类型</td>
+<td>-</td>
+</tr>
+<tr>
+<td>sendMessageUserid</td>
+<td>发送消息的用户 id</td>
+<td>-</td>
+</tr>
+<tr>
+<td>recvMessageUserid</td>
+<td>接收消息的用户 id</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data</td>
+<td>消息内容</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="logoutasync-退出系统" tabindex="-1"><a class="header-anchor" href="#logoutasync-退出系统"><span><code v-pre>logoutAsync</code>: 退出系统</span></a></h4>
+<p>参数: <code v-pre>Object</code> ,对应属性值如下:</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>businessData</td>
+<td>业务数据</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="closeconnectasync-关闭连接" tabindex="-1"><a class="header-anchor" href="#closeconnectasync-关闭连接"><span><code v-pre>closeConnectAsync</code>: 关闭连接</span></a></h4>
+<p>无参数</p>
+<h4 id="videolayerconvertasync-视频显示切换" tabindex="-1"><a class="header-anchor" href="#videolayerconvertasync-视频显示切换"><span><code v-pre>videoLayerConvertAsync</code>: 视频显示切换</span></a></h4>
+<p>无参数</p>
+<h4 id="backmenuasync-返回菜单页" tabindex="-1"><a class="header-anchor" href="#backmenuasync-返回菜单页"><span><code v-pre>backMenuAsync</code>: 返回菜单页</span></a></h4>
+<p>无参数</p>
+<h4 id="facecircleasync-打开脸圈" tabindex="-1"><a class="header-anchor" href="#facecircleasync-打开脸圈"><span><code v-pre>faceCircleAsync</code>: 打开脸圈</span></a></h4>
+<p>无参数</p>
+<h4 id="getphotobycameraasync-拍照" tabindex="-1"><a class="header-anchor" href="#getphotobycameraasync-拍照"><span><code v-pre>getPhotoByCameraAsync</code>: 拍照</span></a></h4>
+<p>无参数</p>
+<h4 id="viewconvertasync-切换" tabindex="-1"><a class="header-anchor" href="#viewconvertasync-切换"><span><code v-pre>viewConvertAsync</code>: 切换</span></a></h4>
+<p>无参数</p>
+<hr>
+</div></template>
+
+

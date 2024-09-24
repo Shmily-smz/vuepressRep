@@ -1,0 +1,10 @@
+
+export default {
+  module: {
+    rules: [ 
+      <%_ for(const rule of module.rules){ _%>
+        <%- rule _%><%= "," %>
+      <%_ } _%>
+    ]
+  }
+}

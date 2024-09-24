@@ -16,13 +16,9 @@ git init
 git add -A
 git commit -m 'deploy'
 
-eval "$(ssh-agent -s)"
-
-sudo ssh-add ~/.ssh/id_ed25519
-
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:Shmily-smz/vuepressRep.git main:main
+git push -f git@github.com:Shmily-smz/vuepressRep.git main:gh-pages
 cd -

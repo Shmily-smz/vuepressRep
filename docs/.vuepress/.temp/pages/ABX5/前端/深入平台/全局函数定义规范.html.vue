@@ -1,0 +1,627 @@
+<template><div><h1 id="全局函数的定义规范" tabindex="-1"><a class="header-anchor" href="#全局函数的定义规范"><span>全局函数的定义规范</span></a></h1>
+<h2 id="全局函数定义入口" tabindex="-1"><a class="header-anchor" href="#全局函数定义入口"><span>全局函数定义入口</span></a></h2>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>交易工程的全局函数入口文件: (规定好的路径, js|ts 都支持使用).</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">BankModule</span>
+<span class="line">└─ pages</span>
+<span class="line">   └─ index(ts/js)</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>文档内示例代码都为 typescript 书写</p>
+</div>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token comment">// 默认导出方式</span></span>
+<span class="line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 全局函数</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="方法分类" tabindex="-1"><a class="header-anchor" href="#方法分类"><span>方法分类</span></a></h2>
+<h3 id="生命周期-列表" tabindex="-1"><a class="header-anchor" href="#生命周期-列表"><span>生命周期 - 列表</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#_onbeforemounttrade">_onBeforeMountTrade</a></td>
+<td>function</td>
+<td>模块级,打开交易前执行的钩子函数</td>
+</tr>
+<tr>
+<td><a href="#_onmountedtrade">_onMountedTrade</a></td>
+<td>function</td>
+<td>模块级,打开交易后执行的钩子函数</td>
+</tr>
+<tr>
+<td><a href="#_onbeforeunmounttrade">_onBeforeUnmountTrade</a></td>
+<td>function</td>
+<td>模块级,关闭交易前执行的钩子函数</td>
+</tr>
+<tr>
+<td><a href="#_onunmountedtrade">_onUnmountedTrade</a></td>
+<td>function</td>
+<td>模块级,关闭交易后执行的钩子函数</td>
+</tr>
+<tr>
+<td><a href="#_onbeforemountpanel">_onBeforeMountPanel</a></td>
+<td>function</td>
+<td>模块级,打开面板时执行的钩子函数</td>
+</tr>
+<tr>
+<td><a href="#_onmountedpanel">_onMountedPanel</a></td>
+<td>function</td>
+<td>模块级,打开面板后执行的钩子函数</td>
+</tr>
+<tr>
+<td><a href="#_onbeforeunmountpanel">_onBeforeUnmountPanel</a></td>
+<td>function</td>
+<td>模块级,关闭面板前执行的钩子函数</td>
+</tr>
+<tr>
+<td><a href="#_onunmountedpanel">_onUnmountedPanel</a></td>
+<td>function</td>
+<td>模块级,关闭面板后执行的钩子函数</td>
+</tr>
+<tr>
+<td><a href="#_onerrorcaptured">_onErrorCaptured</a></td>
+<td>function</td>
+<td>模块级,执行报错时的错误处理钩子函数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="生命周期" tabindex="-1"><a class="header-anchor" href="#生命周期"><span>生命周期</span></a></h2>
+<blockquote>
+<p>生命周期相关的方法可参考 <RouteLink to="/ABX5/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%85%A5%E5%B9%B3%E5%8F%B0/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html">生命周期</RouteLink></p>
+</blockquote>
+<ul>
+<li>
+<h3 id="onbeforemounttrade" tabindex="-1"><a class="header-anchor" href="#onbeforemounttrade"><span>_onBeforeMountTrade</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,打开交易前执行的钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onBeforeMountTrade</span> <span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据传入参数进行处理或处理该生命周期内的交易逻辑</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<h3 id="onmountedtrade" tabindex="-1"><a class="header-anchor" href="#onmountedtrade"><span>_onMountedTrade</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,打开交易后执行的钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onMountedTrade</span> <span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据传入参数进行处理或处理该生命周期内的交易逻辑</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<h3 id="onbeforeunmounttrade" tabindex="-1"><a class="header-anchor" href="#onbeforeunmounttrade"><span>_onBeforeUnmountTrade</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,关闭交易前执行的钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onBeforeUnmountTrade</span> <span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据传入参数进行处理或处理该生命周期内的交易逻辑</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<h3 id="onunmountedtrade" tabindex="-1"><a class="header-anchor" href="#onunmountedtrade"><span>_onUnmountedTrade</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,关闭交易后执行的钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onUnmountedTrade</span> <span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据传入参数进行处理或处理该生命周期内的交易逻辑</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<h3 id="onbeforemountpanel" tabindex="-1"><a class="header-anchor" href="#onbeforemountpanel"><span>_onBeforeMountPanel</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,打开面板时执行的钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onBeforeMountPanel</span> <span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据传入参数进行处理或处理该生命周期内的交易逻辑</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<h3 id="onmountedpanel" tabindex="-1"><a class="header-anchor" href="#onmountedpanel"><span>_onMountedPanel</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,打开面板后执行的钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onMountedPanel</span> <span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据传入参数进行处理或处理该生命周期内的交易逻辑</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<h3 id="onbeforeunmountpanel" tabindex="-1"><a class="header-anchor" href="#onbeforeunmountpanel"><span>_onBeforeUnmountPanel</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,关闭面板前执行的钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onBeforeUnmountPanel</span> <span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据传入参数进行处理或处理该生命周期内的交易逻辑</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<h3 id="onunmountedpanel" tabindex="-1"><a class="header-anchor" href="#onunmountedpanel"><span>_onUnmountedPanel</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,关闭面板后执行的钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onUnmountedPanel</span> <span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据传入参数进行处理或处理该生命周期内的交易逻辑</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<h3 id="onerrorcaptured" tabindex="-1"><a class="header-anchor" href="#onerrorcaptured"><span>_onErrorCaptured</span></a></h3>
+<p><strong>方法说明</strong>: 模块级,执行报错时的错误处理钩子函数</p>
+<p><strong>参数</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>err</td>
+<td>Object</td>
+<td>错误对象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token function">_onErrorCaptured</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 根据 err 信息做不同的处理信息</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ul>
+<h3 id="setdefaultclosing" tabindex="-1"><a class="header-anchor" href="#setdefaultclosing"><span>_setDefaultClosing</span></a></h3>
+<p>设置关闭提示</p>
+<blockquote>
+<p>参考<RouteLink to="/ABX5/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%85%A5%E5%B9%B3%E5%8F%B0/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html#%E8%AE%BE%E7%BD%AE%E5%85%B3%E9%97%AD%E6%8F%90%E7%A4%BA">_setDefaultClosing</RouteLink></p>
+</blockquote>
+<hr>
+<!-- 声明周期相关   陈光   后续补 -->
+<ul>
+<li>
+<h3 id="onglobalmessage" tabindex="-1"><a class="header-anchor" href="#onglobalmessage"><span>onGlobalMessage</span></a></h3>
+</li>
+<li>
+<h3 id="beforeclosetrade" tabindex="-1"><a class="header-anchor" href="#beforeclosetrade"><span>beforeCloseTrade</span></a></h3>
+</li>
+<li>
+<h3 id="afterclosedtrade" tabindex="-1"><a class="header-anchor" href="#afterclosedtrade"><span>afterClosedTrade</span></a></h3>
+</li>
+<li>
+<h3 id="beforeaborttrade" tabindex="-1"><a class="header-anchor" href="#beforeaborttrade"><span>beforeAbortTrade</span></a></h3>
+</li>
+<li>
+<h3 id="afterabortedtrade" tabindex="-1"><a class="header-anchor" href="#afterabortedtrade"><span>afterAbortedTrade</span></a></h3>
+</li>
+<li>
+<h3 id="beforeopentrade" tabindex="-1"><a class="header-anchor" href="#beforeopentrade"><span>beforeOpenTrade</span></a></h3>
+</li>
+</ul>
+<h2 id="公共钩子函数-列表" tabindex="-1"><a class="header-anchor" href="#公共钩子函数-列表"><span>公共钩子函数 - 列表</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#defaultclosingtip">defaultClosingTip</a></td>
+<td>function</td>
+<td>重置默认的关闭提示框</td>
+</tr>
+<tr>
+<td><a href="#defaultmasktip">defaultMaskTip</a></td>
+<td>function</td>
+<td>重置默认的遮照提示</td>
+</tr>
+<tr>
+<td><a href="#handlehosttradedata">handleHostTradeData</a></td>
+<td>function</td>
+<td>处理打开交易时传入的交易数据</td>
+</tr>
+<tr>
+<td><a href="#handlehostglobaldata">handleHostGlobalData</a></td>
+<td>function</td>
+<td>处理全局数据、设置请求遮罩</td>
+</tr>
+<tr>
+<td><a href="#setdefaultframe">setDefaultFrame</a></td>
+<td>function</td>
+<td>设置 bpmn 交易的全局通用模版</td>
+</tr>
+</tbody>
+</table>
+<h2 id="setdefaultframe-setdefaultframe" tabindex="-1"><a class="header-anchor" href="#setdefaultframe-setdefaultframe"><span>setDefaultFrame {#setDefaultFrame}</span></a></h2>
+<blockquote>
+<p>设置 bpmn 交易的全局通用模版</p>
+</blockquote>
+<p><strong>示例</strong></p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 设置 bpmn 交易的全局通用模版</span></span>
+<span class="line">  <span class="token function">setDefaultFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token comment">// 返回需要设置的文件相对于工程的路径即可</span></span>
+<span class="line">    <span class="token keyword">return</span> <span class="token string">"BankModule/pages/基础布局.vue"</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="defaultmasktip-defaultmasktip" tabindex="-1"><a class="header-anchor" href="#defaultmasktip-defaultmasktip"><span>defaultMaskTip {#defaultMaskTip}</span></a></h2>
+<blockquote>
+<p>重置默认的遮照提示</p>
+</blockquote>
+<p><strong>示例</strong></p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 重置默认的遮照提示</span></span>
+<span class="line">  <span class="token keyword">async</span> <span class="token function">defaultMaskTip</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="defaultclosingtip-defaultclosingtip" tabindex="-1"><a class="header-anchor" href="#defaultclosingtip-defaultclosingtip"><span>defaultClosingTip {#defaultClosingTip}</span></a></h2>
+<blockquote>
+<p>定义全局的关闭提示框，用于覆盖平台自带的</p>
+</blockquote>
+<p><strong>参数</strong></p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token keyword">type</span> <span class="token class-name">DomId</span> <span class="token operator">=</span> <span class="token builtin">string</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">type</span> <span class="token class-name">Context</span> <span class="token operator">=</span> <span class="token builtin">any</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">enum</span> Result <span class="token operator">=</span> <span class="token punctuation">{</span></span>
+<span class="line">  Cancel <span class="token operator">=</span> <span class="token string">'cancel'</span><span class="token punctuation">,</span> <span class="token comment">// 取消关闭</span></span>
+<span class="line">  Confirm <span class="token operator">=</span> <span class="token string">'confirm'</span><span class="token punctuation">,</span> <span class="token comment">// 确认关闭</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"><span class="token keyword">function</span> <span class="token function">defaultClosingTip</span><span class="token punctuation">(</span><span class="token punctuation">{</span>targetId<span class="token operator">:</span> DomId<span class="token punctuation">,</span> context<span class="token operator">:</span> Context <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>Result<span class="token operator">></span> <span class="token operator">|</span> Result<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>说明</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>targetId</td>
+<td>DomId</td>
+<td>关闭提示框要挂载的元素 Id</td>
+</tr>
+<tr>
+<td>targetId</td>
+<td>Context</td>
+<td>上下文</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">async</span> <span class="token function">defaultClosingTip</span><span class="token punctuation">(</span><span class="token punctuation">{</span> targetId<span class="token punctuation">,</span> context <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"定义全局的关闭提示框，用于覆盖平台自带的"</span><span class="token punctuation">,</span> targetId<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token keyword">await</span> window<span class="token punctuation">.</span>abx<span class="token punctuation">.</span>layer<span class="token punctuation">.</span><span class="token function">tipInfo</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">      message<span class="token operator">:</span> <span class="token string">"请确认是否关闭？"</span><span class="token punctuation">,</span></span>
+<span class="line">      buttonText<span class="token operator">:</span> <span class="token string">"取消"</span><span class="token punctuation">,</span></span>
+<span class="line">      confirmText<span class="token operator">:</span> <span class="token string">"确定"</span><span class="token punctuation">,</span></span>
+<span class="line">      titleText<span class="token operator">:</span> <span class="token string">"关闭交易"</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token function-variable function">beforeConfirm</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">return</span> <span class="token punctuation">{</span></span>
+<span class="line">          result<span class="token operator">:</span> <span class="token string">"confirm"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token function-variable function">close</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">return</span> <span class="token punctuation">{</span></span>
+<span class="line">          result<span class="token operator">:</span> <span class="token string">"cancel"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">      targetId<span class="token operator">:</span> targetId<span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line highlighted">    <span class="token keyword">return</span> result<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>请务必按照要求返回结果，否则关闭会出现异常</p>
+</div>
+<h2 id="handlehostglobaldata-handlehostglobaldata" tabindex="-1"><a class="header-anchor" href="#handlehostglobaldata-handlehostglobaldata"><span>handleHostGlobalData {#handleHostGlobalData}</span></a></h2>
+<blockquote>
+<p>用于设置全局数据</p>
+</blockquote>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<blockquote>
+<p>应用于<code v-pre>bpmn</code>交易</p>
+</blockquote>
+</div>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>此函数提供有部分历史原因，由于最开始嵌入时无地方设置全局数据，所以在创建交易时传入参数设置</p>
+<p>如有可获取全局数据的地方，例如可在 sdm 上获取，即可不使用此函数</p>
+</div>
+<p><strong>参数</strong></p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token keyword">function</span> <span class="token function">handleHostGlobalData</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">  hostGlobalData<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span></span>
+<span class="line">  setGlobalData<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>globalData<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">,</span></span>
+<span class="line">  setResponseMask<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token keyword">void</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>入参</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hostGlobalData</td>
+<td>any</td>
+<td>打开交易时传入的全局数据</td>
+</tr>
+<tr>
+<td>setGlobalData</td>
+<td>function</td>
+<td>将处理后的全局数据进行保存</td>
+</tr>
+<tr>
+<td>setResponseMask</td>
+<td>function</td>
+<td>设置统一的请求遮罩</td>
+</tr>
+</tbody>
+</table>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<ol>
+<li>
+<p><code v-pre>hostGlobalData</code>就是在创建交易时<code v-pre>importVar:{hostGlobalData: {}}</code>传入的参数</p>
+</li>
+<li>
+<p><code v-pre>setResponseMask</code>用于设置在通讯过程中的弹框，此处为历史遗留，新版可在别处设置，待完善...</p>
+</li>
+</ol>
+</div>
+<p><strong>示例</strong>:</p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token comment">// 工程自定义的请求遮罩组件,需在 export 前引入</span></span>
+<span class="line"><span class="token keyword">import</span> HttpDialog <span class="token keyword">from</span> <span class="token string">"BankModule/pages/主框架/组件/HttpDialog.vue"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token function">handleHostGlobalData</span><span class="token punctuation">(</span><span class="token punctuation">{</span> hostGlobalData<span class="token punctuation">,</span> setGlobalData<span class="token punctuation">,</span> setResponseMask <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">let</span> globalData <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>hostGlobalData<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token comment">// globalData修改设置</span></span>
+<span class="line">    <span class="token function">setGlobalData</span><span class="token punctuation">(</span>globalData<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// 设置请求遮罩</span></span>
+<span class="line">    <span class="token function">setResponseMask</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">      <span class="token comment">// 是否创建遮罩</span></span>
+<span class="line">      isCreateMask<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token comment">// 发送 http 请求时,打开请求遮罩</span></span>
+<span class="line">      <span class="token function-variable function">openHTTPMask</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>elementID<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">const</span> h <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$createElement<span class="token punctuation">;</span></span>
+<span class="line">        <span class="token comment">// 请求遮罩挂载的元素</span></span>
+<span class="line">        <span class="token keyword">const</span> target <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>elementID<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token keyword">let</span> loading <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$aui<span class="token punctuation">.</span>loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">          background<span class="token operator">:</span> <span class="token string">"rgba(255, 255, 255, 0)"</span><span class="token punctuation">,</span></span>
+<span class="line">          instance<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">,</span></span>
+<span class="line">          component<span class="token operator">:</span> <span class="token function">h</span><span class="token punctuation">(</span></span>
+<span class="line">            window<span class="token punctuation">.</span>abx<span class="token punctuation">.</span><span class="token function">handleVue</span><span class="token punctuation">(</span>HttpDialog<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token punctuation">{</span></span>
+<span class="line">              classify<span class="token operator">:</span> <span class="token string">"http"</span><span class="token punctuation">,</span></span>
+<span class="line">            <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line">          <span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="line">          target<span class="token punctuation">,</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token comment">// 返回创建出来的请求遮罩实例,关闭时调用</span></span>
+<span class="line">        <span class="token keyword">return</span> loading<span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token comment">// http 请求完成后,关闭请求遮罩</span></span>
+<span class="line">      <span class="token function-variable function">closeHTTPMask</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>loading<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token comment">// 调用创建后请求遮罩实例上的 close 方法关闭遮罩</span></span>
+<span class="line">        loading<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token comment">// 发送流程请求时,打开 Message 请求遮罩</span></span>
+<span class="line">      <span class="token function-variable function">openMessageMask</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>elementID<span class="token punctuation">,</span> exist<span class="token punctuation">,</span> timeoutCallback<span class="token punctuation">,</span> timeout<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">const</span> h <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$createElement<span class="token punctuation">;</span></span>
+<span class="line">        <span class="token comment">// 请求遮罩挂载的元素</span></span>
+<span class="line">        <span class="token keyword">const</span> target <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>elementID<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token keyword">let</span> loading <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$aui<span class="token punctuation">.</span>loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span>
+<span class="line">          background<span class="token operator">:</span> <span class="token string">"rgba(255, 255, 255, 0)"</span><span class="token punctuation">,</span></span>
+<span class="line">          instance<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">,</span></span>
+<span class="line">          component<span class="token operator">:</span> <span class="token function">h</span><span class="token punctuation">(</span></span>
+<span class="line">            window<span class="token punctuation">.</span>abx<span class="token punctuation">.</span><span class="token function">handleVue</span><span class="token punctuation">(</span>HttpDialog<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token punctuation">{</span></span>
+<span class="line">              classify<span class="token operator">:</span> <span class="token string">"message"</span><span class="token punctuation">,</span></span>
+<span class="line">              _exist<span class="token operator">:</span> exist<span class="token punctuation">,</span></span>
+<span class="line">              _timeoutCallback<span class="token operator">:</span> timeoutCallback<span class="token punctuation">,</span></span>
+<span class="line">              _elementID<span class="token operator">:</span> elementID<span class="token punctuation">,</span></span>
+<span class="line">              _timeout<span class="token operator">:</span> timeout<span class="token punctuation">,</span></span>
+<span class="line">            <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line">          <span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="line">          target<span class="token punctuation">,</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token comment">// 返回创建出来的请求遮罩实例,关闭时调用</span></span>
+<span class="line">        <span class="token keyword">return</span> loading<span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">      <span class="token comment">// 收到 message 服务返回的 socket 信息后,关闭 Message 请求遮罩</span></span>
+<span class="line">      <span class="token function-variable function">closeMessageMask</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>loading<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token comment">// 调用创建后请求遮罩实例上的 close 方法关闭遮罩</span></span>
+<span class="line">        loading<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="handlehosttradedata-handlehosttradedata" tabindex="-1"><a class="header-anchor" href="#handlehosttradedata-handlehosttradedata"><span>handleHostTradeData {#handleHostTradeData}</span></a></h2>
+<blockquote>
+<p>设置交易流程请求中的请求头以及请求体</p>
+</blockquote>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<blockquote>
+<p>应用于<code v-pre>bpmn</code>交易</p>
+</blockquote>
+</div>
+<p><strong>参数一</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hostTradeData</td>
+<td>object</td>
+<td>传入的交易数据</td>
+</tr>
+<tr>
+<td>setTradeData</td>
+<td>function</td>
+<td>设置交易流程请求中的请求体内容</td>
+</tr>
+<tr>
+<td>setTradeHeader</td>
+<td>function</td>
+<td>设置交易流程请求中的请求头内容</td>
+</tr>
+</tbody>
+</table>
+<p><strong>参数二</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>createType</td>
+<td>CreateType</td>
+<td>创建的交易类型</td>
+</tr>
+</tbody>
+</table>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<ol>
+<li><code v-pre>hostTradeData</code>就是在创建交易时<code v-pre>importVar:{hostTradeData: {}}</code>传入的参数</li>
+</ol>
+</div>
+<p><strong>示例</strong></p>
+<div class="language-typescript line-numbers-mode" data-highlighter="prismjs" data-ext="ts" data-title="ts"><pre v-pre><code><span class="line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token function">handleHostTradeData</span><span class="token punctuation">(</span></span>
+<span class="line">    <span class="token punctuation">{</span> hostTradeData<span class="token punctuation">,</span> setTradeData<span class="token punctuation">,</span> setTradeHeader <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token punctuation">{</span> createType <span class="token punctuation">}</span></span>
+<span class="line">  <span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"创建的交易类型"</span><span class="token punctuation">,</span> createType<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// 设置传入的交易数据</span></span>
+<span class="line">    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>hostTradeData<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token comment">// 设置交易流程请求中的请求体内容</span></span>
+<span class="line">    <span class="token function">setTradeData</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>交易请求体<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token comment">// 设置交易流程请求中的请求头内容</span></span>
+<span class="line">    <span class="token function">setTradeHeader</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>交易请求头<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="sethttptipinfo-sethttptipinfo" tabindex="-1"><a class="header-anchor" href="#sethttptipinfo-sethttptipinfo"><span>setHttpTipInfo {#setHttpTipInfo}</span></a></h2>
+<blockquote>
+<p>设置<code v-pre>http</code>请求的通讯提示信息</p>
+</blockquote>
+<h2 id="setsockettipinfo-setsockettipinfo" tabindex="-1"><a class="header-anchor" href="#setsockettipinfo-setsockettipinfo"><span>setSocketTipInfo {#setSocketTipInfo}</span></a></h2>
+<blockquote>
+<p>设置<code v-pre>socket</code>请求的通讯提示信息，一般应用于<code v-pre>bpmn</code>交易</p>
+</blockquote>
+</div></template>
+
+

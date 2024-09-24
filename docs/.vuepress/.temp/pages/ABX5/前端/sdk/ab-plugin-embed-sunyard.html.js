@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-plugin-embed-sunyard.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-plugin-embed-sunyard.html\",\"title\":\"ab-plugin-embed-sunyard@前端内嵌信雅达影像控件\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 使用\",\"slug\":\"_2-使用\",\"link\":\"#_2-使用\",\"children\":[{\"level\":3,\"title\":\"2.1 sunYardInit --内嵌请求初始化\",\"slug\":\"_2-1-sunyardinit-内嵌请求初始化\",\"link\":\"#_2-1-sunyardinit-内嵌请求初始化\",\"children\":[]},{\"level\":3,\"title\":\"2.2 sunYardFinish --关闭信雅达控件\",\"slug\":\"_2-2-sunyardfinish-关闭信雅达控件\",\"link\":\"#_2-2-sunyardfinish-关闭信雅达控件\",\"children\":[]},{\"level\":3,\"title\":\"2.3 sunYardActiveAbcShell --信雅达窗口置顶\",\"slug\":\"_2-3-sunyardactiveabcshell-信雅达窗口置顶\",\"link\":\"#_2-3-sunyardactiveabcshell-信雅达窗口置顶\",\"children\":[]},{\"level\":3,\"title\":\"2.4 sunYardAddListener --启动信雅达控件主动发送报文的监听器\",\"slug\":\"_2-4-sunyardaddlistener-启动信雅达控件主动发送报文的监听器\",\"link\":\"#_2-4-sunyardaddlistener-启动信雅达控件主动发送报文的监听器\",\"children\":[]},{\"level\":3,\"title\":\"2.5 sunYardCommOcxFunction -- 调用ocx控件提供的接口\",\"slug\":\"_2-5-sunyardcommocxfunction-调用ocx控件提供的接口\",\"link\":\"#_2-5-sunyardcommocxfunction-调用ocx控件提供的接口\",\"children\":[]},{\"level\":3,\"title\":\"2.6 sunYardCreateSunScan --发送内嵌请求初始化:业务参数\",\"slug\":\"_2-6-sunyardcreatesunscan-发送内嵌请求初始化-业务参数\",\"link\":\"#_2-6-sunyardcreatesunscan-发送内嵌请求初始化-业务参数\",\"children\":[]},{\"level\":3,\"title\":\"2.7 sunYardDeactiveAbcShell --取消窗口置顶\",\"slug\":\"_2-7-sunyarddeactiveabcshell-取消窗口置顶\",\"link\":\"#_2-7-sunyarddeactiveabcshell-取消窗口置顶\",\"children\":[]},{\"level\":3,\"title\":\"2.8 sunYardFindSunYard --查询存活信雅达控件id\",\"slug\":\"_2-8-sunyardfindsunyard-查询存活信雅达控件id\",\"link\":\"#_2-8-sunyardfindsunyard-查询存活信雅达控件id\",\"children\":[]},{\"level\":3,\"title\":\"2.9 sunYardRemoveListener -- 关闭信雅达控件主动发送报文的监听器\",\"slug\":\"_2-9-sunyardremovelistener-关闭信雅达控件主动发送报文的监听器\",\"link\":\"#_2-9-sunyardremovelistener-关闭信雅达控件主动发送报文的监听器\",\"children\":[]},{\"level\":3,\"title\":\"2.10 sunYardSetTimeout --设置信雅达控件进程的超时时间\",\"slug\":\"_2-10-sunyardsettimeout-设置信雅达控件进程的超时时间\",\"link\":\"#_2-10-sunyardsettimeout-设置信雅达控件进程的超时时间\",\"children\":[]},{\"level\":3,\"title\":\"2.11 sunYardShowSunScan --操作控件,主要动作为新增修改查询\",\"slug\":\"_2-11-sunyardshowsunscan-操作控件-主要动作为新增修改查询\",\"link\":\"#_2-11-sunyardshowsunscan-操作控件-主要动作为新增修改查询\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-plugin-embed-sunyard.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

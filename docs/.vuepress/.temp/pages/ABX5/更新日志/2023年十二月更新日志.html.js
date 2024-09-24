@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/更新日志/2023年十二月更新日志.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/2023%E5%B9%B4%E5%8D%81%E4%BA%8C%E6%9C%88%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.html\",\"title\":\"更新日志 {#更新日志}\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"20231225 周一 16:23\",\"slug\":\"_20231225-周一-16-23\",\"link\":\"#_20231225-周一-16-23\",\"children\":[]},{\"level\":2,\"title\":\"20231220 周三 17:22\",\"slug\":\"_20231220-周三-17-22\",\"link\":\"#_20231220-周三-17-22\",\"children\":[]},{\"level\":2,\"title\":\"20231214 周四 14:27\",\"slug\":\"_20231214-周四-14-27\",\"link\":\"#_20231214-周四-14-27\",\"children\":[]},{\"level\":2,\"title\":\"20231213 周三 14:34\",\"slug\":\"_20231213-周三-14-34\",\"link\":\"#_20231213-周三-14-34\",\"children\":[]},{\"level\":2,\"title\":\"20231212 周二 15:30\",\"slug\":\"_20231212-周二-15-30\",\"link\":\"#_20231212-周二-15-30\",\"children\":[]},{\"level\":2,\"title\":\"20231208 周五 16:55\",\"slug\":\"_20231208-周五-16-55\",\"link\":\"#_20231208-周五-16-55\",\"children\":[]},{\"level\":2,\"title\":\"20231208 周五 15:49\",\"slug\":\"_20231208-周五-15-49\",\"link\":\"#_20231208-周五-15-49\",\"children\":[]},{\"level\":2,\"title\":\"20231208 周五 10:25\",\"slug\":\"_20231208-周五-10-25\",\"link\":\"#_20231208-周五-10-25\",\"children\":[]},{\"level\":2,\"title\":\"20231207 周四 19:36\",\"slug\":\"_20231207-周四-19-36\",\"link\":\"#_20231207-周四-19-36\",\"children\":[]},{\"level\":2,\"title\":\"20231207 周四 16:22\",\"slug\":\"_20231207-周四-16-22\",\"link\":\"#_20231207-周四-16-22\",\"children\":[]},{\"level\":2,\"title\":\"20231207 周四 10:09\",\"slug\":\"_20231207-周四-10-09\",\"link\":\"#_20231207-周四-10-09\",\"children\":[]},{\"level\":2,\"title\":\"20231206 周三 14:58\",\"slug\":\"_20231206-周三-14-58\",\"link\":\"#_20231206-周三-14-58\",\"children\":[]},{\"level\":2,\"title\":\"20231206 周三 10:00\",\"slug\":\"_20231206-周三-10-00\",\"link\":\"#_20231206-周三-10-00\",\"children\":[]},{\"level\":2,\"title\":\"20231202 周六 11:03\",\"slug\":\"_20231202-周六-11-03\",\"link\":\"#_20231202-周六-11-03\",\"children\":[]},{\"level\":2,\"title\":\"20231201 周五 17:25\",\"slug\":\"_20231201-周五-17-25\",\"link\":\"#_20231201-周五-17-25\",\"children\":[]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/更新日志/2023年十二月更新日志.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

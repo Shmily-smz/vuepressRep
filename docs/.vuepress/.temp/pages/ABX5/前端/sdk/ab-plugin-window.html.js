@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-plugin-window.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-plugin-window.html\",\"title\":\"ab-plugin-window 多窗口组件\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 使用\",\"slug\":\"_2-使用\",\"link\":\"#_2-使用\",\"children\":[{\"level\":3,\"title\":\"2.1 open -- 以新窗口的方式打开目标URL\",\"slug\":\"_2-1-open-以新窗口的方式打开目标url\",\"link\":\"#_2-1-open-以新窗口的方式打开目标url\",\"children\":[]},{\"level\":3,\"title\":\"2.2 pop -- 关闭顶层窗口\",\"slug\":\"_2-2-pop-关闭顶层窗口\",\"link\":\"#_2-2-pop-关闭顶层窗口\",\"children\":[]},{\"level\":3,\"title\":\"2.3 sendMessage -- 向指定窗口发送自定义消息\",\"slug\":\"_2-3-sendmessage-向指定窗口发送自定义消息\",\"link\":\"#_2-3-sendmessage-向指定窗口发送自定义消息\",\"children\":[]},{\"level\":3,\"title\":\"2.4 getWindowStackSize -- 获取当前窗口栈的栈深度\",\"slug\":\"_2-4-getwindowstacksize-获取当前窗口栈的栈深度\",\"link\":\"#_2-4-getwindowstacksize-获取当前窗口栈的栈深度\",\"children\":[]},{\"level\":3,\"title\":\"2.5 getCurrentWindow -- 获取当前窗口信息\",\"slug\":\"_2-5-getcurrentwindow-获取当前窗口信息\",\"link\":\"#_2-5-getcurrentwindow-获取当前窗口信息\",\"children\":[]},{\"level\":3,\"title\":\"2.6 closeWindow -- 关闭指定窗口\",\"slug\":\"_2-6-closewindow-关闭指定窗口\",\"link\":\"#_2-6-closewindow-关闭指定窗口\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-plugin-window.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

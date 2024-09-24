@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/abx-plugin-embed.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/abx-plugin-embed.html\",\"title\":\"abx-plugin-embed\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. 使用\",\"slug\":\"_2-使用\",\"link\":\"#_2-使用\",\"children\":[{\"level\":3,\"title\":\"2.1 init\",\"slug\":\"_2-1-init\",\"link\":\"#_2-1-init\",\"children\":[]},{\"level\":3,\"title\":\"2.2 createSunScan\",\"slug\":\"_2-2-createsunscan\",\"link\":\"#_2-2-createsunscan\",\"children\":[]},{\"level\":3,\"title\":\"2.3 showSunScan\",\"slug\":\"_2-3-showsunscan\",\"link\":\"#_2-3-showsunscan\",\"children\":[]},{\"level\":3,\"title\":\"2.4 commOcxFunction\",\"slug\":\"_2-4-commocxfunction\",\"link\":\"#_2-4-commocxfunction\",\"children\":[]},{\"level\":3,\"title\":\"2.5 setTimeout\",\"slug\":\"_2-5-settimeout\",\"link\":\"#_2-5-settimeout\",\"children\":[]},{\"level\":3,\"title\":\"2.6 addListener\",\"slug\":\"_2-6-addlistener\",\"link\":\"#_2-6-addlistener\",\"children\":[]},{\"level\":3,\"title\":\"2.7 removeListener\",\"slug\":\"_2-7-removelistener\",\"link\":\"#_2-7-removelistener\",\"children\":[]},{\"level\":3,\"title\":\"2.8 finish\",\"slug\":\"_2-8-finish\",\"link\":\"#_2-8-finish\",\"children\":[]},{\"level\":3,\"title\":\"2.9 findSunYard\",\"slug\":\"_2-9-findsunyard\",\"link\":\"#_2-9-findsunyard\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/abx-plugin-embed.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

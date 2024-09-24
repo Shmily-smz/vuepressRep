@@ -1,11 +1,11 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 //获取顶边栏
-function findDeepestMarkdownFile(dir, baseDir,folderName) {
+function findDeepestMarkdownFile(dir, baseDir, folderName) {
   const fullPath = path.resolve(__dirname, "../../", dir);
   let files = fs.readdirSync(fullPath);
   // 过滤掉 .DS_Store 等隐藏文件
-  files = (files).sort((a, b) => {
+  files = files.sort((a, b) => {
     // 提取文件名中的数字和文字部分
     const numA = parseInt(a.match(/^\d+/));
     const numB = parseInt(b.match(/^\d+/));
@@ -20,9 +20,9 @@ function findDeepestMarkdownFile(dir, baseDir,folderName) {
     } else if (!isNaN(numB)) {
       return 1; // 数字优先
     }
-    
+
     // 如果没有数字或者数字相等，比较文字部分的第一个字符
-    return a[0].localeCompare(b[0], 'zh', { sensitivity: 'base' });
+    return a[0].localeCompare(b[0], "zh", { sensitivity: "base" });
   });
 
   let deepestMarkdownFile = null;
@@ -32,7 +32,7 @@ function findDeepestMarkdownFile(dir, baseDir,folderName) {
     const relativePath = path.relative(baseDir, filePath);
 
     if (fs.statSync(path.resolve(fullPath, file)).isDirectory()) {
-      const result = findDeepestMarkdownFile(filePath, baseDir,folderName);
+      const result = findDeepestMarkdownFile(filePath, baseDir, folderName);
       if (result) {
         return result;
       }
@@ -45,17 +45,17 @@ function findDeepestMarkdownFile(dir, baseDir,folderName) {
 }
 
 //根据文件夹目录获取侧边栏
-function getSidebarItems(dir,folderName) {
+function getSidebarItems(dir, folderName) {
   const items = [];
   const navbarItems = [];
   const fullPath = path.resolve(__dirname, "../../", dir);
-  
+
   let files = fs.readdirSync(fullPath);
   // 过滤掉 .DS_Store 等隐藏文件
-  files = (files).sort((a, b) => {
+  files = files.sort((a, b) => {
     const numA = parseInt(a.match(/^\d+/));
     const numB = parseInt(b.match(/^\d+/));
-  
+
     if (!isNaN(numA) && !isNaN(numB)) {
       if (numA !== numB) {
         return numA - numB;
@@ -66,7 +66,7 @@ function getSidebarItems(dir,folderName) {
       return 1;
     }
 
-    return a[0].localeCompare(b[0], 'zh', { sensitivity: 'base' });
+    return a[0].localeCompare(b[0], "zh", { sensitivity: "base" });
   });
 
   files.forEach((file) => {
@@ -74,9 +74,8 @@ function getSidebarItems(dir,folderName) {
     const absolutePath = path.resolve(__dirname, "../../", filePath);
 
     if (fs.statSync(absolutePath).isDirectory()) {
-      
-  console.log(file);
-      if (file=="images") {
+      console.log(file);
+      if (file == "images") {
         return;
       }
 
@@ -90,8 +89,8 @@ function getSidebarItems(dir,folderName) {
         text: file,
         link: deepestMarkdownFile || "/",
       });
-    
-      const { items: subItems } = getSidebarItems(filePath,folderName);
+
+      const { items: subItems } = getSidebarItems(filePath, folderName);
       items.push({
         text: file,
         collapsible: true,
@@ -109,6 +108,4 @@ function getSidebarItems(dir,folderName) {
   return { items, navbarItems };
 }
 
-export {
-  getSidebarItems,
-}
+export { getSidebarItems };

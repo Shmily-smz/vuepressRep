@@ -1,0 +1,16 @@
+import comp from "/Users/wangaoqi/Desktop/docsify/vuepress-starter/docs/.vuepress/.temp/pages/ABX5/前端/sdk/ab-manager-lfc.html.vue"
+const data = JSON.parse("{\"path\":\"/ABX5/%E5%89%8D%E7%AB%AF/sdk/ab-manager-lfc.html\",\"title\":\"ab-manager-lfc\",\"lang\":\"en-US\",\"frontmatter\":{\"outline\":\"deep\"},\"headers\":[{\"level\":2,\"title\":\"1. 引入\",\"slug\":\"_1-引入\",\"link\":\"#_1-引入\",\"children\":[]},{\"level\":2,\"title\":\"2. lfc文件格式示例\",\"slug\":\"_2-lfc文件格式示例\",\"link\":\"#_2-lfc文件格式示例\",\"children\":[]},{\"level\":2,\"title\":\"3. LFC的编写规则\",\"slug\":\"_3-lfc的编写规则\",\"link\":\"#_3-lfc的编写规则\",\"children\":[{\"level\":3,\"title\":\"3.1 lfc相关\",\"slug\":\"_3-1-lfc相关\",\"link\":\"#_3-1-lfc相关\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"ABX5/前端/sdk/ab-manager-lfc.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
